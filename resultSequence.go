@@ -12,6 +12,10 @@ func gamesNotWonInARow(res []Result) int {
 	return countSequence(res, func(r Result) bool{return !isWin(r)})
 }
 
+func gamesNotLostInARow(res []Result) int {
+	return countSequence(res, func(r Result) bool{return !isLose(r)})
+}
+
 func countSequence(res []Result, f func(Result) bool) int{
 	count := 0
 	for _,e := range res {
