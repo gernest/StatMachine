@@ -17,6 +17,23 @@ func TestGamesWonInARow(t *testing.T){
 	}
 }
 
+func TestGamesNotWonInARow(t *testing.T){
+	allResults  := []Result{
+		Result{0,0,1},
+		Result{1,1,1},
+		Result{2,0,3},
+		Result{3,0,1},
+		Result{4,0,0},
+		Result{5,1,0},
+	}
+	
+	count := gamesNotWonInARow(allResults)
+	
+	if 5!=count{
+		t.Errorf("Didnt get correct number of games not won in a row, got %v games won in a row, expected 5", count)
+	}
+}
+
 func TestGamesLostInARow(t *testing.T){
 	allResults  := []Result{
 		Result{0,0,1},
@@ -31,3 +48,4 @@ func TestGamesLostInARow(t *testing.T){
 		t.Errorf("Didnt get correct number of games lost in a row, got %v games won in a row, expected 3", count)
 	}
 }
+
