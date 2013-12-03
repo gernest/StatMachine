@@ -1,15 +1,15 @@
 package statmachine
 
 func lastGameWon(res []Result) Result {
-	return findFirst(res, func(r Result) bool { return r.goals>r.opponentGoals})
+	return findFirst(res, isWin)
 }
 
 func lastGameLost(res []Result) Result {
-	return findFirst(res, func(r Result) bool {return r.goals<r.opponentGoals})
+	return findFirst(res, isLose)
 }
 
 func lastGameDrawn(res []Result) Result {
-	return findFirst(res, func(r Result) bool { return r.goals == r.opponentGoals})
+	return findFirst(res, isDraw)
 }
 
 func findFirst(res []Result, f func(Result) bool) Result {

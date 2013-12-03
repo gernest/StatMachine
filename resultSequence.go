@@ -1,11 +1,11 @@
 package statmachine
 
 func gamesWonInARow(res []Result) int {
-	return countSequence(res, func(r Result) bool {return r.goals>r.opponentGoals})
+	return countSequence(res, isWin)
 }
 
 func gamesLostInARow(res []Result) int {
-	return countSequence(res, func(r Result) bool {return r.goals<r.opponentGoals})
+	return countSequence(res, isLose)
 }
 
 func countSequence(res []Result, f func(Result) bool) int{
