@@ -4,12 +4,12 @@ import "testing"
 
 func TestGamesWon(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0},
-		Result{1,2,0},
-		Result{2,0,3},
-		Result{3,1,1},
-		Result{4,3,1},
-		Result{5,1,1},
+		Result{0,1,0,true},
+		Result{1,2,0,true},
+		Result{2,0,3,true},
+		Result{3,1,1,true},
+		Result{4,3,1,true},
+		Result{5,1,1,true},
 	}
 	
 	count := gamesWon(allResults)
@@ -21,12 +21,12 @@ func TestGamesWon(t *testing.T){
 
 func TestGamesLost(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0},
-		Result{1,2,0},
-		Result{2,0,3},
-		Result{3,1,1},
-		Result{4,3,1},
-		Result{5,1,1},
+		Result{0,1,0,true},
+		Result{1,2,0,true},
+		Result{2,0,3,true},
+		Result{3,1,1,true},
+		Result{4,3,1,true},
+		Result{5,1,1,true},
 	}
 	
 	count := gamesLost(allResults)
@@ -38,13 +38,13 @@ func TestGamesLost(t *testing.T){
 
 func TestGamesDrawn(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0},
-		Result{1,2,2},
-		Result{2,3,3},
-		Result{3,1,1},
-		Result{4,3,1},
-		Result{5,1,1},
-		Result{6,0,1},
+		Result{0,1,0,true},
+		Result{1,2,2,true},
+		Result{2,3,3,true},
+		Result{3,1,1,true},
+		Result{4,3,1,true},
+		Result{5,1,1,true},
+		Result{6,0,1,true},
 	}
 	
 	count := gamesDrawn(allResults)
@@ -56,13 +56,13 @@ func TestGamesDrawn(t *testing.T){
 
 func TestGamesScoredIn(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0},
-		Result{1,0,2},
-		Result{2,3,3},
-		Result{3,1,1},
-		Result{4,3,1},
-		Result{5,1,1},
-		Result{6,0,1},
+		Result{0,1,0,true},
+		Result{1,0,2,true},
+		Result{2,3,3,true},
+		Result{3,1,1,true},
+		Result{4,3,1,true},
+		Result{5,1,1,true},
+		Result{6,0,1,true},
 	}
 	
 	count := gamesScoredIn(allResults)
@@ -74,13 +74,13 @@ func TestGamesScoredIn(t *testing.T){
 
 func TestCleanSheets(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0},
-		Result{1,0,2},
-		Result{2,3,3},
-		Result{3,1,1},
-		Result{4,3,1},
-		Result{5,1,1},
-		Result{6,0,1},
+		Result{0,1,0,true},
+		Result{1,0,2,true},
+		Result{2,3,3,true},
+		Result{3,1,1,true},
+		Result{4,3,1,true},
+		Result{5,1,1,true},
+		Result{6,0,1,true},
 	}
 	
 	count := cleanSheets(allResults)
