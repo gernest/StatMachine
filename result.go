@@ -18,3 +18,11 @@ func isLose(r Result) bool{
 func isDraw(r Result) bool{
 	return r.goals == r.opponentGoals
 }
+
+func scoredAGoal(r Result) bool{
+	return r.goals>0
+}
+
+func concededAGoal(r Result) bool{
+	return r.opponentGoals>0
+}
