@@ -86,3 +86,20 @@ func TestLeadingAtHalfTime(t *testing.T){
 		t.Errorf("Didnt get correct number of results leading at half time, got %v, expected 2", len(leadingAtHalfTimeResults))
 	}
 }	
+
+func TestTrailingAtHalfTime(t *testing.T){
+	allResults  := []Result{
+		Result{0,1,0,1,0,true},
+		Result{1,2,0,1,2,false},
+		Result{2,0,3,0,0,true},
+		Result{3,1,1,0,1,false},
+		Result{4,3,1,0,1,false},
+		Result{5,1,1,0,0,true},
+	}
+	
+	results := trailingAtHalfTime(allResults)
+	
+	if 3!=len(results){
+		t.Errorf("Didnt get correct number of results trailing at half time, got %v, expected 3", len(results))
+	}
+}	
