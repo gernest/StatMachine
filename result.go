@@ -4,6 +4,8 @@ type Result struct{
 	id int
 	goals int
 	opponentGoals int
+	goalsAtHalfTime int	
+	opponentGoalsAtHalfTime int	
 	isHomeGame bool
 }
 

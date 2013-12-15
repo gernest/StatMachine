@@ -1,23 +1,34 @@
 package statmachine
 
-func atHome(res []Result) []Result {
+func homeResults(res []Result) []Result {
 	home := make([]Result,0)
 	
-	for _,r := range res{
+	for i,r := range res{
 		if(r.isHomeGame){
-			home = append(home, res[1])
+			home = append(home, res[i])
 		}
 	}
 	return home
 }
 
-func atAway(res []Result) []Result {
+func awayResults(res []Result) []Result {
 	away := make([]Result,0)
 	
-	for _,r := range res{
+	for i,r := range res{
 		if(!r.isHomeGame){
-			away = append(away, res[1])
+			away = append(away, res[i])
 		}
 	}
 	return away
+}
+
+func leadingAtHalfTime(res []Result) []Result {
+	leading := make([]Result,0)
+	
+	for i,r := range res{
+		if(r.goalsAtHalfTime>r.opponentGoalsAtHalfTime){
+			leading = append(leading, res[i])
+		}
+	}
+	return leading
 }

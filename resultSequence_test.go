@@ -4,10 +4,10 @@ import "testing"
 
 func TestGamesWonInARow(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0,true},
-		Result{1,2,0,true},
-		Result{2,0,3,true},
-		Result{3,1,1,true},
+		Result{0,1,0,0,0,true},
+		Result{1,2,0,0,0,true},
+		Result{2,0,3,0,0,true},
+		Result{3,1,1,0,0,true},
 	}
 	
 	count := gamesWonInARow(allResults)
@@ -19,12 +19,12 @@ func TestGamesWonInARow(t *testing.T){
 
 func TestGamesNotWonInARow(t *testing.T){
 	allResults  := []Result{
-		Result{0,0,1,true},
-		Result{1,1,1,true},
-		Result{2,0,3,true},
-		Result{3,0,1,true},
-		Result{4,0,0,true},
-		Result{5,1,0,true},
+		Result{0,0,1,0,0,true},
+		Result{1,1,1,0,0,true},
+		Result{2,0,3,0,0,true},
+		Result{3,0,1,0,0,true},
+		Result{4,0,0,0,0,true},
+		Result{5,1,0,0,0,true},
 	}
 	
 	count := gamesNotWonInARow(allResults)
@@ -36,10 +36,10 @@ func TestGamesNotWonInARow(t *testing.T){
 
 func TestGamesLostInARow(t *testing.T){
 	allResults  := []Result{
-		Result{0,0,1,true},
-		Result{1,0,4,true},
-		Result{2,0,3,true},
-		Result{3,1,1,true},
+		Result{0,0,1,0,0,true},
+		Result{1,0,4,0,0,true},
+		Result{2,0,3,0,0,true},
+		Result{3,1,1,0,0,true},
 	}
 	
 	count := gamesLostInARow(allResults)
@@ -51,14 +51,14 @@ func TestGamesLostInARow(t *testing.T){
 
 func TestGamesNotLostInARow(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0,true},
-		Result{1,1,1,true},
-		Result{2,3,0,true},
-		Result{3,4,1,true},
-		Result{4,0,0,true},
-		Result{5,1,0,true},
-		Result{6,1,0,true},
-		Result{5,0,1,true},
+		Result{0,1,0,0,0,true},
+		Result{1,1,1,0,0,true},
+		Result{2,3,0,0,0,true},
+		Result{3,4,1,0,0,true},
+		Result{4,0,0,0,0,true},
+		Result{5,1,0,0,0,true},
+		Result{6,1,0,0,0,true},
+		Result{5,0,1,0,0,true},
 	}
 	
 	count := gamesNotLostInARow(allResults)
@@ -70,14 +70,14 @@ func TestGamesNotLostInARow(t *testing.T){
 
 func TestGamesScoredInInARow(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0,true},
-		Result{1,1,1,true},
-		Result{2,3,0,true},
-		Result{3,4,1,true},
-		Result{4,0,0,true},
-		Result{5,1,0,true},
-		Result{6,1,0,true},
-		Result{5,0,1,true},
+		Result{0,1,0,0,0,true},
+		Result{1,1,1,0,0,true},
+		Result{2,3,0,0,0,true},
+		Result{3,4,1,0,0,true},
+		Result{4,0,0,0,0,true},
+		Result{5,1,0,0,0,true},
+		Result{6,1,0,0,0,true},
+		Result{5,0,1,0,0,true},
 	}
 	
 	count := gamesScoredInInARow(allResults)
@@ -90,14 +90,14 @@ func TestGamesScoredInInARow(t *testing.T){
 
 func TestGamesConcededInARow(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,1,true},
-		Result{1,1,1,true},
-		Result{2,3,3,true},
-		Result{3,4,1,true},
-		Result{4,0,4,true},
-		Result{5,1,5,true},
-		Result{6,1,1,true},
-		Result{7,0,0,true},
+		Result{0,1,1,0,0,true},
+		Result{1,1,1,0,0,true},
+		Result{2,3,3,0,0,true},
+		Result{3,4,1,0,0,true},
+		Result{4,0,4,0,0,true},
+		Result{5,1,5,0,0,true},
+		Result{6,1,1,0,0,true},
+		Result{7,0,0,0,0,true},
 	}
 	
 	count := gamesConcededInARow(allResults)
