@@ -4,7 +4,7 @@ StatMachine
 Go library for analyzing football results.
 
 # Required Data #
-The library requires the following data for reach result:
+The library requires the following data for each result:
 - Goals scored.
 - Goals scored at half time.
 - Opponents goals scored.
