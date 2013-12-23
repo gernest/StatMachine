@@ -20,3 +20,5 @@ The following stats can be calculated:
 - Games scored in/conceded in a row (at home and/or away).
 - Find the last game won/drawn/lost (at home and/or away).
 - Total number of games scored in/clean sheets (at home and/or away).
+- Most games won/lost in a row (at home and/or away)
+- Most games without a win/loss in a row (at home and/or away)
