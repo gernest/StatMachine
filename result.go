@@ -13,6 +13,13 @@ func NewResult(resultId int, resultGoals int, resultOpponentGoals int, resultGoa
 	return Result{resultId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame}
 }
 
+func goalsScored(r Result) int{
+	return r.goals
+}
+
+func goalsConceded(r Result) int{
+	return r.opponentGoals
+}
 func isWin(r Result) bool{
 	return r.goals>r.opponentGoals
 }

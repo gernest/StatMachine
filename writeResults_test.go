@@ -12,7 +12,7 @@ func TestWriteResults(t *testing.T){
 		Result{5,1,1,0,0,true},
 	}
 	
-	desc := writeResults(allResults)
+	desc := ResultInfoString(allResults)
 	if(desc!="Total (W-D-L): 3-2-1"){
 		t.Errorf("Didnt get correct result set string, got %v", desc)
 	}

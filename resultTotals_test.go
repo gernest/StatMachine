@@ -89,3 +89,40 @@ func TestCleanSheets(t *testing.T){
 		t.Errorf("Didnt get correct number of clean sheets, got %v, expected 1", count)
 	}
 }
+
+
+func TestTotalGoalsScored(t *testing.T){
+	allResults  := []Result{
+		Result{0,1,0,0,0,true},
+		Result{1,0,2,0,0,true},
+		Result{2,3,3,0,0,true},
+		Result{3,1,1,0,0,true},
+		Result{4,3,1,0,0,true},
+		Result{5,1,1,0,0,true},
+		Result{6,0,0,0,0,true},
+	}
+	
+	count := totalGoalsScored(allResults)
+	
+	if 9!=count{
+		t.Errorf("Didnt get correct number of total goals scored , got %v, expected 9", count)
+	}
+}
+
+func TestTotalGoalsConceded(t *testing.T){
+	allResults  := []Result{
+		Result{0,1,0,0,0,true},
+		Result{1,0,2,0,0,true},
+		Result{2,3,3,0,0,true},
+		Result{3,1,1,0,0,true},
+		Result{4,3,1,0,0,true},
+		Result{5,1,0,0,0,true},
+		Result{6,0,0,0,0,true},
+	}
+	
+	count := totalGoalsConceded(allResults)
+	
+	if 7!=count{
+		t.Errorf("Didnt get correct number of total goals conceded, got %v, expected 7", count)
+	}
+}
