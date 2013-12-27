@@ -6,6 +6,6 @@ type Team struct{
 	Results []Result
 }
 
-func NewTeam(teamId int, teamName string) Team{
-	return Team{teamId, teamName, make([]Result, 0,0)}
+func NewTeam(teamId int, teamName string) *Team{
+	return &Team{teamId, teamName, make([]Result, 0,0)}
 }
