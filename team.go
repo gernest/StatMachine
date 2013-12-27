@@ -2,7 +2,7 @@ package statmachine
 
 type Team struct{
 	id int
-	name string
+	Name string
 	Results []Result
 }
 

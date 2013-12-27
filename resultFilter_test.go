@@ -12,7 +12,7 @@ func TestAtHome(t *testing.T){
 		Result{5,1,1,0,0,true},
 	}
 	
-	homeResults := homeResults(allResults)
+	homeResults := HomeResults(allResults)
 	
 	if 3!=len(homeResults){
 		t.Errorf("Didnt get correct number of home games, got %v, expected 3", len(homeResults))
@@ -29,7 +29,7 @@ func TestAtHomeWhenNoHomeGames(t *testing.T){
 		Result{5,1,1,0,0,false},
 	}
 	
-	homeResults := homeResults(allResults)
+	homeResults := HomeResults(allResults)
 	
 	if 0!=len(homeResults){
 		t.Errorf("Didnt get correct number of home games, got %v, expected 0", len(homeResults))
@@ -46,7 +46,7 @@ func TestAtAway(t *testing.T){
 		Result{5,1,1,0,0,true},
 	}
 	
-	awayResults := awayResults(allResults)
+	awayResults := AwayResults(allResults)
 	
 	if 4!=len(awayResults){
 		t.Errorf("Didnt get correct number of away games, got %v, expected 4", len(awayResults))
@@ -63,7 +63,7 @@ func TestAtAwayWhenNoAwayGames(t *testing.T){
 		Result{5,1,1,0,0,true},
 	}
 	
-	awayResults := awayResults(allResults)
+	awayResults := AwayResults(allResults)
 	
 	if 0!=len(awayResults){
 		t.Errorf("Didnt get correct number of away games, got %v, expected 0", len(awayResults))
