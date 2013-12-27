@@ -1,10 +1,10 @@
 package statmachine
 
-func homeResults(res []Result) []Result {
+func HomeResults(res []Result) []Result {
 	return filterResults(res, func(r Result) bool{return r.isHomeGame})
 }
 
-func awayResults(res []Result) []Result {
+func AwayResults(res []Result) []Result {
 	return filterResults(res, func(r Result) bool{return !r.isHomeGame})
 }
 
