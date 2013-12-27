@@ -25,7 +25,7 @@ func TestFindNoneExistingTeamInLeague(t *testing.T){
 	if(nil==err){
 		t.Error("Did not get an error from find by team when I should have")
 	}
-	if(""!=team.Name){
-		t.Errorf("Should have gotten an empty name, got %v", team.Name)
+	if(nil!=team){
+		t.Error("Should have gotten a nil reference, got an team instance")
 	}
 }
