@@ -13,3 +13,9 @@ func GoalInfoString(res []Result) string{
 	gamesScoredIn := gamesScoredIn(res)
 	return fmt.Sprintf("Games Scored In/Clean Sheets: %v/%v", gamesScoredIn, cleanSheets)
 }
+
+func GoalDifferenceString(res []Result) string{
+	goals := totalGoalsScored(res)
+	against := totalGoalsConceded(res)
+	return fmt.Sprintf("Goals Scored- Goals Against (difference): %v-%v %v", goals, against, goals-against)
+}
