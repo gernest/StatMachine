@@ -5,7 +5,7 @@ func lastGameWon(res []Result) Result {
 }
 
 func lastGameLost(res []Result) Result {
-	return findFirst(res, isLose)
+	return findFirst(res, isLoss)
 }
 
 func lastGameDrawn(res []Result) Result {

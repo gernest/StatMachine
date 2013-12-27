@@ -13,7 +13,7 @@ func isWin(r Result) bool{
 	return r.goals>r.opponentGoals
 }
 
-func isLose(r Result) bool{
+func isLoss(r Result) bool{
 	return r.goals<r.opponentGoals
 }
 

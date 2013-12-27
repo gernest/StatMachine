@@ -5,7 +5,7 @@ func gamesWonInARow(res []Result) int {
 }
 
 func gamesLostInARow(res []Result) int {
-	return countSequence(res, isLose)
+	return countSequence(res, isLoss)
 }
 
 func gamesNotWonInARow(res []Result) int {
@@ -13,7 +13,7 @@ func gamesNotWonInARow(res []Result) int {
 }
 
 func gamesNotLostInARow(res []Result) int {
-	return countSequence(res, func(r Result) bool{return !isLose(r)})
+	return countSequence(res, func(r Result) bool{return !isLoss(r)})
 }
 
 func gamesScoredInInARow(res []Result) int {

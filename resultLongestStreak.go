@@ -9,11 +9,11 @@ func mostGamesWithoutALossInARow(res []Result) int {
 }
 
 func mostGamesLostInARow(res []Result) int{
-	return longestSequence(res, isLose)
+	return longestSequence(res, isLoss)
 }
 
 func mostGamesWithoutAWinInARow(res []Result) int {
-	return longestSequence(res, func(r Result) bool{return isLose(r) || isDraw(r)})
+	return longestSequence(res, func(r Result) bool{return isLoss(r) || isDraw(r)})
 }
 
 func longestSequence(res []Result, f func(Result) bool) int{

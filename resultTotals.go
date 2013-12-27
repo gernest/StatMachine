@@ -5,7 +5,7 @@ func gamesWon(res []Result) int{
 }
 
 func gamesLost(res []Result) int{
-	return countTotal(res, isLose)
+	return countTotal(res, isLoss)
 }
 
 func gamesDrawn(res []Result) int{
