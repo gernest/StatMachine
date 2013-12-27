@@ -13,11 +13,11 @@ func gamesDrawn(res []Result) int{
 }
 
 func gamesScoredIn(res []Result) int{
-	return countTotal(res, func (r Result) bool{return r.goals>0})
+	return countTotal(res, scoredAGoal)
 }
 
 func cleanSheets(res []Result) int{
-	return countTotal(res, func (r Result) bool {return 0==r.opponentGoals})
+	return countTotal(res, func (r Result) bool {return !concededAGoal(r)})
 }
 
 func countTotal(res []Result, f func(Result) bool) int{
