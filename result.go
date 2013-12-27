@@ -9,6 +9,10 @@ type Result struct{
 	isHomeGame bool
 }
 
+func NewResult(resultId int, resultGoals int, resultOpponentGoals int, resultGoalsAtHalfTime int, resultOpponentGoalsAtHalfTime int, resultIsHomeGame bool) Result{
+	return Result{resultId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame}
+}
+
 func isWin(r Result) bool{
 	return r.goals>r.opponentGoals
 }
