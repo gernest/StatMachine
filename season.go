@@ -2,18 +2,18 @@ package statmachine
 
 import "errors"
 
-type League struct{
+type Season struct{
 	name string
 	Teams []*Team
 }
 
-func NewLeague(name string) League{
-	return League{name, make([]*Team, 0,0)}
+func NewSeason(name string) Season{
+	return Season{name, make([]*Team, 0,0)}
 }
 
-func FindTeamByName(league League, name string) (*Team, error){
+func FindTeamByName(season Season, name string) (*Team, error){
 	
-	for _,t := range league.Teams{
+	for _,t := range season.Teams{
 		if(t.Name == name){
 			return t, nil
 		}
