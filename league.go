@@ -20,3 +20,11 @@ func FindTeamByName(league League, name string) (*Team, error){
 	}
 	return nil, errors.New("Couldnt find a team with the give name")
 }
+
+func TotalNumberOfResults(league League) int{
+	numResults:=0
+	for _,t := range league.Teams{
+		numResults+=len(t.Results)
+	}
+	return numResults
+}

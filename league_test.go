@@ -29,3 +29,24 @@ func TestFindNoneExistingTeamInLeague(t *testing.T){
 		t.Error("Should have gotten a nil reference, got an team instance")
 	}
 }
+
+func TestNumberOfGames(t *testing.T){
+	league :=NewLeague("Test League")
+	teamA :=NewTeam(1, "Liverpool")
+	teamA.Results = []Result{
+		NewResult(0,1,0,0,0,true,0),
+		NewResult(1,2,0,0,0,true,0),
+		NewResult(2,0,3,0,0,true,0),
+	}
+	league.Teams = append(league.Teams, teamA)
+	teamB :=NewTeam(1, "Arsenal")
+	teamB.Results = []Result{
+		NewResult(0,1,0,0,0,true,0),
+	}
+	league.Teams = append(league.Teams, teamB)
+	
+	numResults :=TotalNumberOfResults(league)
+	if(4!=numResults){
+		t.Errorf("expected 4 results, got %v", numResults)
+	}
+}
