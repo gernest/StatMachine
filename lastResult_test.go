@@ -4,10 +4,10 @@ import "testing"
 
 func TestLastGameWon(t *testing.T){
 	allResults  := []Result{
-		Result{0,0,0,0,0,true},
-		Result{1,2,0,0,0,true},
-		Result{2,0,3,0,0,true},
-		Result{3,4,1,0,0,true},
+		NewResult(0,0,0,0,0,true,0),
+		NewResult(1,2,0,0,0,true,0),
+		NewResult(2,0,3,0,0,true,0),
+		NewResult(3,4,1,0,0,true,0),
 		}
 	
 	win := lastGameWon(allResults)
@@ -20,10 +20,10 @@ func TestLastGameWon(t *testing.T){
 
 func TestLastGameLost(t *testing.T){
 	allResults  := []Result{
-		Result{0,0,0,0,0,true},
-		Result{1,2,0,0,0,true},
-		Result{2,0,3,0,0,true},
-		Result{3,4,1,0,0,true},
+		NewResult(0,0,0,0,0,true, 0),
+		NewResult(1,2,0,0,0,true,0),
+		NewResult(2,0,3,0,0,true,0),
+		NewResult(3,4,1,0,0,true,0),
 		}
 	
 	lost := lastGameLost(allResults)
@@ -35,10 +35,10 @@ func TestLastGameLost(t *testing.T){
 
 func TestLastGameDrawn(t *testing.T){
 	allResults  := []Result{
-		Result{0,0,0,0,0,true},
-		Result{1,2,0,0,0,true},
-		Result{2,0,3,0,0,true},
-		Result{3,4,1,0,0,true},
+		NewResult(0,0,0,0,0,true,0),
+		NewResult(1,2,0,0,0,true,0),
+		NewResult(2,0,3,0,0,true,0),
+		NewResult(3,4,1,0,0,true,0),
 		}
 	drawn := lastGameDrawn(allResults)
 	

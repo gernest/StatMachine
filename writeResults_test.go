@@ -4,12 +4,12 @@ import "testing"
 
 func TestWriteResults(t *testing.T){
 	allResults  := []Result{
-		Result{0,1,0,0,0,true},
-		Result{1,2,0,0,0,false},
-		Result{2,0,3,0,0,true},
-		Result{3,1,1,0,0,false},
-		Result{4,3,1,0,0,false},
-		Result{5,1,1,0,0,true},
+		NewResult(0,1,0,0,0,true,0),
+		NewResult(1,2,0,0,0,false,0),
+		NewResult(2,0,3,0,0,true,0),
+		NewResult(3,1,1,0,0,false,0),
+		NewResult(4,3,1,0,0,false,0),
+		NewResult(5,1,1,0,0,true,0),
 	}
 	
 	desc := ResultInfoString(allResults)

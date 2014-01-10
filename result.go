@@ -7,10 +7,11 @@ type Result struct{
 	goalsAtHalfTime int	
 	opponentGoalsAtHalfTime int	
 	isHomeGame bool
+	seasonId int
 }
 
-func NewResult(resultId int, resultGoals int, resultOpponentGoals int, resultGoalsAtHalfTime int, resultOpponentGoalsAtHalfTime int, resultIsHomeGame bool) Result{
-	return Result{resultId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame}
+func NewResult(resultId int, resultGoals int, resultOpponentGoals int, resultGoalsAtHalfTime int, resultOpponentGoalsAtHalfTime int, resultIsHomeGame bool, resultSeasonId int) Result{
+	return Result{resultId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame, resultSeasonId}
 }
 
 func goalsScored(r Result) int{
