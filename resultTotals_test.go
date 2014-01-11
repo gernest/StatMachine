@@ -4,12 +4,12 @@ import "testing"
 
 func TestGamesWon(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,true,0),
-		NewResult(1,2,0,0,0,true,0),
-		NewResult(2,0,3,0,0,true,0),
-		NewResult(3,1,1,0,0,true,0),
-		NewResult(4,3,1,0,0,true,0),
-		NewResult(5,1,1,0,0,true,0),
+		NewResult(0,1,0,0,0,0,true,0),
+		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(3,1,0,1,0,0,true,0),
+		NewResult(4,3,0,1,0,0,true,0),
+		NewResult(5,1,0,1,0,0,true,0),
 	}
 	
 	count := gamesWon(allResults)
@@ -21,12 +21,12 @@ func TestGamesWon(t *testing.T){
 
 func TestGamesLost(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,true,0),
-		NewResult(1,2,0,0,0,true,0),
-		NewResult(2,0,3,0,0,true,0),
-		NewResult(3,1,1,0,0,true,0),
-		NewResult(4,3,1,0,0,true,0),
-		NewResult(5,1,1,0,0,true,0),
+		NewResult(0,1,0,0,0,0,true,0),
+		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(3,1,0,1,0,0,true,0),
+		NewResult(4,3,0,1,0,0,true,0),
+		NewResult(5,1,0,1,0,0,true,0),
 	}
 	
 	count := gamesLost(allResults)
@@ -38,13 +38,13 @@ func TestGamesLost(t *testing.T){
 
 func TestGamesDrawn(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,true,0),
-		NewResult(1,2,2,0,0,true,0),
-		NewResult(2,3,3,0,0,true,0),
-		NewResult(3,1,1,0,0,true,0),
-		NewResult(4,3,1,0,0,true,0),
-		NewResult(5,1,1,0,0,true,0),
-		NewResult(6,0,1,0,0,true,0),
+		NewResult(0,1,0,0,0,0,true,0),
+		NewResult(1,2,0,2,0,0,true,0),
+		NewResult(2,3,0,3,0,0,true,0),
+		NewResult(3,1,0,1,0,0,true,0),
+		NewResult(4,3,0,1,0,0,true,0),
+		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(6,0,0,1,0,0,true,0),
 	}
 	
 	count := gamesDrawn(allResults)
@@ -56,13 +56,13 @@ func TestGamesDrawn(t *testing.T){
 
 func TestGamesScoredIn(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,true,0),
-		NewResult(2,3,3,0,0,true,0),
-		NewResult(3,1,1,0,0,true,0),
-		NewResult(4,3,1,0,0,true,0),
-		NewResult(5,1,1,0,0,true,0),
-		NewResult(6,0,1,0,0,true,0),
+		NewResult(0,1,0,0,0,0,true,0),
+		NewResult(1,0,0,2,0,0,true,0),
+		NewResult(2,3,0,3,0,0,true,0),
+		NewResult(3,1,0,1,0,0,true,0),
+		NewResult(4,3,0,1,0,0,true,0),
+		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(6,0,0,1,0,0,true,0),
 	}
 	
 	count := gamesScoredIn(allResults)
@@ -74,13 +74,13 @@ func TestGamesScoredIn(t *testing.T){
 
 func TestCleanSheets(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,true,0),
-		NewResult(2,3,3,0,0,true,0),
-		NewResult(3,1,1,0,0,true,0),
-		NewResult(4,3,1,0,0,true,0),
-		NewResult(5,1,1,0,0,true,0),
-		NewResult(6,0,1,0,0,true,0),
+		NewResult(0,1,0,0,0,0,true,0),
+		NewResult(1,0,0,2,0,0,true,0),
+		NewResult(2,3,0,3,0,0,true,0),
+		NewResult(3,1,0,1,0,0,true,0),
+		NewResult(4,3,0,1,0,0,true,0),
+		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(6,0,0,1,0,0,true,0),
 	}
 	
 	count := cleanSheets(allResults)
@@ -93,13 +93,13 @@ func TestCleanSheets(t *testing.T){
 
 func TestTotalGoalsScored(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,true,0),
-		NewResult(2,3,3,0,0,true,0),
-		NewResult(3,1,1,0,0,true,0),
-		NewResult(4,3,1,0,0,true,0),
-		NewResult(5,1,1,0,0,true,0),
-		NewResult(6,0,0,0,0,true,0),
+		NewResult(0,1,0,0,0,0,true,0),
+		NewResult(1,0,0,2,0,0,true,0),
+		NewResult(2,3,0,3,0,0,true,0),
+		NewResult(3,1,0,1,0,0,true,0),
+		NewResult(4,3,0,1,0,0,true,0),
+		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(6,0,0,0,0,0,true,0),
 	}
 	
 	count := totalGoalsScored(allResults)
@@ -111,13 +111,13 @@ func TestTotalGoalsScored(t *testing.T){
 
 func TestTotalGoalsConceded(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,true,0),
-		NewResult(2,3,3,0,0,true,0),
-		NewResult(3,1,1,0,0,true,0),
-		NewResult(4,3,1,0,0,true,0),
-		NewResult(5,1,0,0,0,true,0),
-		NewResult(6,0,0,0,0,true,0),
+		NewResult(0,1,0,0,0,0,true,0),
+		NewResult(1,0,0,2,0,0,true,0),
+		NewResult(2,3,0,3,0,0,true,0),
+		NewResult(3,1,0,1,0,0,true,0),
+		NewResult(4,3,0,1,0,0,true,0),
+		NewResult(5,1,0,0,0,0,true,0),
+		NewResult(6,0,0,0,0,0,true,0),
 	}
 	
 	count := totalGoalsConceded(allResults)

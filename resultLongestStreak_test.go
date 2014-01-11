@@ -4,13 +4,13 @@ import "testing"
 
 func TestMostGamesWonInARow(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,true,0),
-		NewResult(1,2,0,0,0,true,0),
-		NewResult(2,0,3,0,0,true,0),
-		NewResult(3,1,0,0,0,true,0),
-		NewResult(4,2,0,0,0,true,0),
-		NewResult(5,3,1,0,0,true,0),
-		NewResult(6,1,1,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0),
+		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(3,1,0,0,0,0,true,0),
+		NewResult(4,2,0,0,0,0,true,0),
+		NewResult(5,3,0,1,0,0,true,0),
+		NewResult(6,1,0,1,0,0,true,0),
 	}
 	
 	count := mostGamesWonInARow(allResults)
@@ -22,13 +22,13 @@ func TestMostGamesWonInARow(t *testing.T){
 
 func TestMostGamesWonInARowWhenThereAreNone(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,true,0),
-		NewResult(1,0,0,0,0,true,0),
-		NewResult(2,0,3,0,0,true,0),
-		NewResult(3,0,0,0,0,true,0),
-		NewResult(4,0,2,0,0,true,0),
-		NewResult(5,1,1,0,0,true,0),
-		NewResult(6,1,1,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0),
+		NewResult(1,0,0,0,0,0,true,0),
+		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(3,0,0,0,0,0,true,0),
+		NewResult(4,0,0,2,0,0,true,0),
+		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(6,1,0,1,0,0,true,0),
 	}
 	
 	count := mostGamesWonInARow(allResults)
@@ -40,15 +40,15 @@ func TestMostGamesWonInARowWhenThereAreNone(t *testing.T){
 
 func TestMostGamesWithoutALossInARow(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,true,0),
-		NewResult(1,2,0,0,0,true,0),
-		NewResult(2,0,3,0,0,true,0),
-		NewResult(3,1,0,0,0,true,0),
-		NewResult(4,2,0,0,0,true,0),
-		NewResult(5,3,1,0,0,true,0),
-		NewResult(6,1,1,0,0,true,0),
-		NewResult(7,1,1,0,0,true,0),
-		NewResult(8,0,1,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0),
+		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(3,1,0,0,0,0,true,0),
+		NewResult(4,2,0,0,0,0,true,0),
+		NewResult(5,3,0,1,0,0,true,0),
+		NewResult(6,1,0,1,0,0,true,0),
+		NewResult(7,1,0,1,0,0,true,0),
+		NewResult(8,0,0,1,0,0,true,0),
 	}
 	
 	count := mostGamesWithoutALossInARow(allResults)
@@ -60,13 +60,13 @@ func TestMostGamesWithoutALossInARow(t *testing.T){
 
 func TestMostGamesWithoutALossInARowWhenThereAreNone(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,true,0),
-		NewResult(1,0,1,0,0,true,0),
-		NewResult(2,0,1,0,0,true,0),
-		NewResult(3,0,1,0,0,true,0),
-		NewResult(4,2,3,0,0,true,0),
-		NewResult(5,1,2,0,0,true,0),
-		NewResult(6,1,2,0,0,true,0),
+		NewResult(0,0,0,1,0,0,true,0),
+		NewResult(1,0,0,1,0,0,true,0),
+		NewResult(2,0,0,1,0,0,true,0),
+		NewResult(3,0,0,1,0,0,true,0),
+		NewResult(4,2,0,3,0,0,true,0),
+		NewResult(5,1,0,2,0,0,true,0),
+		NewResult(6,1,0,2,0,0,true,0),
 	}
 	
 	count := mostGamesWithoutALossInARow(allResults)
@@ -78,13 +78,13 @@ func TestMostGamesWithoutALossInARowWhenThereAreNone(t *testing.T){
 
 func TestMostGamesLostInARow(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,true,0),
-		NewResult(1,2,0,0,0,true,0),
-		NewResult(2,0,3,0,0,true,0),
-		NewResult(3,1,0,0,0,true,0),
-		NewResult(4,2,0,0,0,true,0),
-		NewResult(5,3,1,0,0,true,0),
-		NewResult(6,1,1,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0),
+		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(3,1,0,0,0,0,true,0),
+		NewResult(4,2,0,0,0,0,true,0),
+		NewResult(5,3,0,1,0,0,true,0),
+		NewResult(6,1,0,1,0,0,true,0),
 	}
 	
 	count := mostGamesLostInARow(allResults)
@@ -96,13 +96,13 @@ func TestMostGamesLostInARow(t *testing.T){
 
 func TestMostGamesLostInARowWhenThereAreNone(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,true,0),
-		NewResult(1,0,0,0,0,true,0),
-		NewResult(2,0,0,0,0,true,0),
-		NewResult(3,0,0,0,0,true,0),
-		NewResult(4,2,0,0,0,true,0),
-		NewResult(5,1,1,0,0,true,0),
-		NewResult(6,1,1,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0),
+		NewResult(1,0,0,0,0,0,true,0),
+		NewResult(2,0,0,0,0,0,true,0),
+		NewResult(3,0,0,0,0,0,true,0),
+		NewResult(4,2,0,0,0,0,true,0),
+		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(6,1,0,1,0,0,true,0),
 	}
 	
 	count := mostGamesLostInARow(allResults)
@@ -115,15 +115,15 @@ func TestMostGamesLostInARowWhenThereAreNone(t *testing.T){
 
 func TestMostGamesWithoutAWinInARow(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,true,0),
-		NewResult(1,0,0,0,0,true,0),
-		NewResult(2,0,0,0,0,true,0),
-		NewResult(3,0,0,0,0,true,0),
-		NewResult(4,0,0,0,0,true,0),
-		NewResult(5,0,0,0,0,true,0),
-		NewResult(6,0,0,0,0,true,0),
-		NewResult(7,0,0,0,0,true,0),
-		NewResult(8,1,0,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0),
+		NewResult(1,0,0,0,0,0,true,0),
+		NewResult(2,0,0,0,0,0,true,0),
+		NewResult(3,0,0,0,0,0,true,0),
+		NewResult(4,0,0,0,0,0,true,0),
+		NewResult(5,0,0,0,0,0,true,0),
+		NewResult(6,0,0,0,0,0,true,0),
+		NewResult(7,0,0,0,0,0,true,0),
+		NewResult(8,1,0,0,0,0,true,0),
 	}
 	
 	count := mostGamesWithoutAWinInARow(allResults)
@@ -135,13 +135,13 @@ func TestMostGamesWithoutAWinInARow(t *testing.T){
 
 func TestMostGamesWithoutAWinInARowWhenThereAreNone(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,2,1,0,0,true,0),
-		NewResult(1,2,1,0,0,true,0),
-		NewResult(2,2,1,0,0,true,0),
-		NewResult(3,2,1,0,0,true,0),
-		NewResult(4,4,3,0,0,true,0),
-		NewResult(5,4,2,0,0,true,0),
-		NewResult(6,4,2,0,0,true,0),
+		NewResult(0,2,1,0,0,0,true,0),
+		NewResult(1,2,1,0,0,0,true,0),
+		NewResult(2,2,1,0,0,0,true,0),
+		NewResult(3,2,1,0,0,0,true,0),
+		NewResult(4,4,3,0,0,0,true,0),
+		NewResult(5,4,2,0,0,0,true,0),
+		NewResult(6,4,2,0,0,0,true,0),
 	}
 	
 	count := mostGamesWithoutAWinInARow(allResults)
