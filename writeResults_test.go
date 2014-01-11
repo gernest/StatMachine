@@ -17,3 +17,20 @@ func TestWriteResults(t *testing.T){
 		t.Errorf("Didnt get correct result set string, got %v", desc)
 	}
 }
+
+func TestWriteSequenceString(t *testing.T){
+	allResults  := []Result{
+		NewResult(0,0,1,0,0,0,true,0),
+		NewResult(1,0,2,0,0,0,false,0),
+		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(3,0,1,1,0,0,false,0),
+		NewResult(4,0,3,1,0,0,false,0),
+		NewResult(5,0,1,1,0,0,true,0),
+	}
+	
+	desc := ResultSequenceString(allResults)
+	if(desc!="WWLDWD"){
+		t.Errorf("Didnt get correct result sequence string, got %v", desc)
+	}
+
+}
