@@ -1,15 +1,18 @@
 package statmachine
 
-import "testing"
+import (
+		"testing"
+		"time"
+		)
 
 func TestWriteResults(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,0,false,0),
-		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,0,1,1,0,0,false,0),
-		NewResult(4,0,3,1,0,0,false,0),
-		NewResult(5,0,1,1,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,0,0,0,false,0, time.Now()),
+		NewResult(2,0,0,3,0,0,true,0, time.Now()),
+		NewResult(3,0,1,1,0,0,false,0, time.Now()),
+		NewResult(4,0,3,1,0,0,false,0, time.Now()),
+		NewResult(5,0,1,1,0,0,true,0, time.Now()),
 	}
 	
 	desc := ResultInfoString(allResults)
@@ -20,12 +23,12 @@ func TestWriteResults(t *testing.T){
 
 func TestWriteSequenceString(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,0,false,0),
-		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,0,1,1,0,0,false,0),
-		NewResult(4,0,3,1,0,0,false,0),
-		NewResult(5,0,1,1,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,0,0,0,false,0, time.Now()),
+		NewResult(2,0,0,3,0,0,true,0, time.Now()),
+		NewResult(3,0,1,1,0,0,false,0, time.Now()),
+		NewResult(4,0,3,1,0,0,false,0, time.Now()),
+		NewResult(5,0,1,1,0,0,true,0, time.Now()),
 	}
 	
 	desc := ResultSequenceString(allResults)

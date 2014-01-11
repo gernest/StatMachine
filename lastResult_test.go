@@ -1,13 +1,14 @@
 package statmachine
 
 import "testing"
+import "time"
 
 func TestLastGameWon(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,0,true,0),
-		NewResult(1,0,2,0,0,0,true,0),
-		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,0,4,1,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,0,0,0,true,0, time.Now()),
+		NewResult(2,0,0,3,0,0,true,0, time.Now()),
+		NewResult(3,0,4,1,0,0,true,0, time.Now()),
 		}
 	
 	win := lastGameWon(allResults)
@@ -20,10 +21,10 @@ func TestLastGameWon(t *testing.T){
 
 func TestLastGameLost(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,0,true, 0),
-		NewResult(1,0,2,0,0,0,true,0),
-		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,0,4,1,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,0,0,0,true,0, time.Now()),
+		NewResult(2,0,0,3,0,0,true,0, time.Now()),
+		NewResult(3,0,4,1,0,0,true,0, time.Now()),
 		}
 	
 	lost := lastGameLost(allResults)
@@ -35,10 +36,10 @@ func TestLastGameLost(t *testing.T){
 
 func TestLastGameDrawn(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,0,0,0,0,true,0),
-		NewResult(1,0,2,0,0,0,true,0),
-		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,0,4,1,0,0,true,0),
+		NewResult(0,0,0,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,0,0,0,true,0, time.Now()),
+		NewResult(2,0,0,3,0,0,true,0, time.Now()),
+		NewResult(3,0,4,1,0,0,true,0, time.Now()),
 		}
 	drawn := lastGameDrawn(allResults)
 	

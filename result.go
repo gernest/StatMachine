@@ -1,5 +1,7 @@
 package statmachine
 
+import "time"
+
 type Result struct{
 	id int
 	opponentId int
@@ -9,10 +11,11 @@ type Result struct{
 	opponentGoalsAtHalfTime int	
 	isHomeGame bool
 	seasonId int
+	date time.Time
 }
 
-func NewResult(resultId int, resultOpponentId int, resultGoals int,  resultOpponentGoals int, resultGoalsAtHalfTime int, resultOpponentGoalsAtHalfTime int, resultIsHomeGame bool, resultSeasonId int) Result{
-	return Result{resultId, resultOpponentId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame, resultSeasonId}
+func NewResult(resultId int, resultOpponentId int, resultGoals int,  resultOpponentGoals int, resultGoalsAtHalfTime int, resultOpponentGoalsAtHalfTime int, resultIsHomeGame bool, resultSeasonId int, resultDate time.Time) Result{
+	return Result{resultId, resultOpponentId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame, resultSeasonId, resultDate}
 }
 
 func goalsScored(r Result) int{

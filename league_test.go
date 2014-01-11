@@ -1,6 +1,7 @@
 package statmachine
 
 import "testing"
+import "time"
 
 func TestFindExistingTeamInLeague(t *testing.T){
 	league := NewLeague("Test League")
@@ -34,14 +35,14 @@ func TestNumberOfGames(t *testing.T){
 	league :=NewLeague("Test League")
 	teamA :=NewTeam(1, "Liverpool")
 	teamA.Results = []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,0,true,0),
-		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,0,0,0,true,0, time.Now()),
+		NewResult(2,0,0,3,0,0,true,0, time.Now()),
 	}
 	league.Teams = append(league.Teams, teamA)
 	teamB :=NewTeam(1, "Arsenal")
 	teamB.Results = []Result{
-		NewResult(0,0,1,0,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
 	}
 	league.Teams = append(league.Teams, teamB)
 	

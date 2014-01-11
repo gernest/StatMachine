@@ -1,15 +1,18 @@
 package statmachine
 
-import "testing"
+import (
+		"testing"
+		"time"
+		)
 
 func TestGamesWon(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,0,true,0),
-		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,0,1,1,0,0,true,0),
-		NewResult(4,0,3,1,0,0,true,0),
-		NewResult(5,0,1,1,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,0,0,0,true,0, time.Now()),
+		NewResult(2,0,0,3,0,0,true,0, time.Now()),
+		NewResult(3,0,1,1,0,0,true,0, time.Now()),
+		NewResult(4,0,3,1,0,0,true,0, time.Now()),
+		NewResult(5,0,1,1,0,0,true,0, time.Now()),
 	}
 	
 	count := gamesWon(allResults)
@@ -21,12 +24,12 @@ func TestGamesWon(t *testing.T){
 
 func TestGamesLost(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,2,0,0,0,true,0),
-		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,0,1,1,0,0,true,0),
-		NewResult(4,0,3,1,0,0,true,0),
-		NewResult(5,0,1,1,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,0,0,0,true,0, time.Now()),
+		NewResult(2,0,0,3,0,0,true,0, time.Now()),
+		NewResult(3,0,1,1,0,0,true,0, time.Now()),
+		NewResult(4,0,3,1,0,0,true,0, time.Now()),
+		NewResult(5,0,1,1,0,0,true,0, time.Now()),
 	}
 	
 	count := gamesLost(allResults)
@@ -38,13 +41,13 @@ func TestGamesLost(t *testing.T){
 
 func TestGamesDrawn(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,2,2,0,0,true,0),
-		NewResult(2,0,3,3,0,0,true,0),
-		NewResult(3,0,1,1,0,0,true,0),
-		NewResult(4,0,3,1,0,0,true,0),
-		NewResult(5,0,1,1,0,0,true,0),
-		NewResult(6,0,0,1,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,2,2,0,0,true,0, time.Now()),
+		NewResult(2,0,3,3,0,0,true,0, time.Now()),
+		NewResult(3,0,1,1,0,0,true,0, time.Now()),
+		NewResult(4,0,3,1,0,0,true,0, time.Now()),
+		NewResult(5,0,1,1,0,0,true,0, time.Now()),
+		NewResult(6,0,0,1,0,0,true,0, time.Now()),
 	}
 	
 	count := gamesDrawn(allResults)
@@ -56,13 +59,13 @@ func TestGamesDrawn(t *testing.T){
 
 func TestGamesScoredIn(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,0,2,0,0,true,0),
-		NewResult(2,0,3,3,0,0,true,0),
-		NewResult(3,0,1,1,0,0,true,0),
-		NewResult(4,0,3,1,0,0,true,0),
-		NewResult(5,0,1,1,0,0,true,0),
-		NewResult(6,0,0,1,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,0,2,0,0,true,0, time.Now()),
+		NewResult(2,0,3,3,0,0,true,0, time.Now()),
+		NewResult(3,0,1,1,0,0,true,0, time.Now()),
+		NewResult(4,0,3,1,0,0,true,0, time.Now()),
+		NewResult(5,0,1,1,0,0,true,0, time.Now()),
+		NewResult(6,0,0,1,0,0,true,0, time.Now()),
 	}
 	
 	count := gamesScoredIn(allResults)
@@ -74,13 +77,13 @@ func TestGamesScoredIn(t *testing.T){
 
 func TestCleanSheets(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,0,true,0),
-		NewResult(1,0,0,2,0,0,true,0),
-		NewResult(2,3,0,3,0,0,true,0),
-		NewResult(3,1,0,1,0,0,true,0),
-		NewResult(4,3,0,1,0,0,true,0),
-		NewResult(5,1,0,1,0,0,true,0),
-		NewResult(6,0,0,1,0,0,true,0),
+		NewResult(0,1,0,0,0,0,true,0, time.Now()),
+		NewResult(1,0,0,2,0,0,true,0, time.Now()),
+		NewResult(2,3,0,3,0,0,true,0, time.Now()),
+		NewResult(3,1,0,1,0,0,true,0, time.Now()),
+		NewResult(4,3,0,1,0,0,true,0, time.Now()),
+		NewResult(5,1,0,1,0,0,true,0, time.Now()),
+		NewResult(6,0,0,1,0,0,true,0, time.Now()),
 	}
 	
 	count := cleanSheets(allResults)
@@ -93,13 +96,13 @@ func TestCleanSheets(t *testing.T){
 
 func TestTotalGoalsScored(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,0,2,0,0,true,0),
-		NewResult(2,0,3,3,0,0,true,0),
-		NewResult(3,0,1,1,0,0,true,0),
-		NewResult(4,0,3,1,0,0,true,0),
-		NewResult(5,0,1,1,0,0,true,0),
-		NewResult(6,0,0,0,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,0,2,0,0,true,0, time.Now()),
+		NewResult(2,0,3,3,0,0,true,0, time.Now()),
+		NewResult(3,0,1,1,0,0,true,0, time.Now()),
+		NewResult(4,0,3,1,0,0,true,0, time.Now()),
+		NewResult(5,0,1,1,0,0,true,0, time.Now()),
+		NewResult(6,0,0,0,0,0,true,0, time.Now()),
 	}
 	
 	count := totalGoalsScored(allResults)
@@ -111,13 +114,13 @@ func TestTotalGoalsScored(t *testing.T){
 
 func TestTotalGoalsConceded(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,0,1,0,0,0,true,0),
-		NewResult(1,0,0,2,0,0,true,0),
-		NewResult(2,0,3,3,0,0,true,0),
-		NewResult(3,0,1,1,0,0,true,0),
-		NewResult(4,0,3,1,0,0,true,0),
-		NewResult(5,0,1,0,0,0,true,0),
-		NewResult(6,0,0,0,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0, time.Now()),
+		NewResult(1,0,0,2,0,0,true,0, time.Now()),
+		NewResult(2,0,3,3,0,0,true,0, time.Now()),
+		NewResult(3,0,1,1,0,0,true,0, time.Now()),
+		NewResult(4,0,3,1,0,0,true,0, time.Now()),
+		NewResult(5,0,1,0,0,0,true,0, time.Now()),
+		NewResult(6,0,0,0,0,0,true,0, time.Now()),
 	}
 	
 	count := totalGoalsConceded(allResults)
