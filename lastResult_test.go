@@ -5,9 +5,9 @@ import "testing"
 func TestLastGameWon(t *testing.T){
 	allResults  := []Result{
 		NewResult(0,0,0,0,0,0,true,0),
-		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(1,0,2,0,0,0,true,0),
 		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,4,0,1,0,0,true,0),
+		NewResult(3,0,4,1,0,0,true,0),
 		}
 	
 	win := lastGameWon(allResults)
@@ -21,9 +21,9 @@ func TestLastGameWon(t *testing.T){
 func TestLastGameLost(t *testing.T){
 	allResults  := []Result{
 		NewResult(0,0,0,0,0,0,true, 0),
-		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(1,0,2,0,0,0,true,0),
 		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,4,0,1,0,0,true,0),
+		NewResult(3,0,4,1,0,0,true,0),
 		}
 	
 	lost := lastGameLost(allResults)
@@ -36,9 +36,9 @@ func TestLastGameLost(t *testing.T){
 func TestLastGameDrawn(t *testing.T){
 	allResults  := []Result{
 		NewResult(0,0,0,0,0,0,true,0),
-		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(1,0,2,0,0,0,true,0),
 		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,4,0,1,0,0,true,0),
+		NewResult(3,0,4,1,0,0,true,0),
 		}
 	drawn := lastGameDrawn(allResults)
 	

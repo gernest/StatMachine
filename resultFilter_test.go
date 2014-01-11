@@ -4,12 +4,12 @@ import "testing"
 
 func TestAtHome(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,0,true,0),
-		NewResult(1,2,0,0,0,0,false,0),
+		NewResult(0,0,1,0,0,0,true,0),
+		NewResult(1,0,2,0,0,0,false,0),
 		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,1,0,1,0,0,false,0),
-		NewResult(4,3,0,1,0,0,false,0),
-		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(3,0,1,1,0,0,false,0),
+		NewResult(4,0,3,1,0,0,false,0),
+		NewResult(5,0,1,1,0,0,true,0),
 	}
 	
 	homeResults := HomeResults(allResults)
@@ -21,12 +21,12 @@ func TestAtHome(t *testing.T){
 
 func TestAtHomeWhenNoHomeGames(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,0,false,0),
-		NewResult(1,2,0,0,0,0,false,0),
+		NewResult(0,0,1,0,0,0,false,0),
+		NewResult(1,0,2,0,0,0,false,0),
 		NewResult(2,0,0,3,0,0,false,0),
-		NewResult(3,1,0,1,0,0,false,0),
-		NewResult(4,3,0,1,0,0,false,0),
-		NewResult(5,1,0,1,0,0,false,0),
+		NewResult(3,0,1,1,0,0,false,0),
+		NewResult(4,0,3,1,0,0,false,0),
+		NewResult(5,0,1,1,0,0,false,0),
 	}
 	
 	homeResults := HomeResults(allResults)
@@ -38,12 +38,12 @@ func TestAtHomeWhenNoHomeGames(t *testing.T){
 
 func TestAtAway(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,0,true,0),
-		NewResult(1,2,0,0,0,0,false,0),
+		NewResult(0,0,1,0,0,0,true,0),
+		NewResult(1,0,2,0,0,0,false,0),
 		NewResult(2,0,0,3,0,0,false,0),
-		NewResult(3,1,0,1,0,0,false,0),
-		NewResult(4,3,0,1,0,0,false,0),
-		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(3,0,1,1,0,0,false,0),
+		NewResult(4,0,3,1,0,0,false,0),
+		NewResult(5,0,1,1,0,0,true,0),
 	}
 	
 	awayResults := AwayResults(allResults)
@@ -55,12 +55,12 @@ func TestAtAway(t *testing.T){
 
 func TestAtAwayWhenNoAwayGames(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,0,0,true,0),
-		NewResult(1,2,0,0,0,0,true,0),
+		NewResult(0,0,1,0,0,0,true,0),
+		NewResult(1,0,2,0,0,0,true,0),
 		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,1,0,1,0,0,true,0),
-		NewResult(4,3,0,1,0,0,true,0),
-		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(3,0,1,1,0,0,true,0),
+		NewResult(4,0,3,1,0,0,true,0),
+		NewResult(5,0,1,1,0,0,true,0),
 	}
 	
 	awayResults := AwayResults(allResults)
@@ -72,12 +72,12 @@ func TestAtAwayWhenNoAwayGames(t *testing.T){
 
 func TestLeadingAtHalfTime(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,1,0,true,0),
-		NewResult(1,2,0,0,0,0,false,0),
+		NewResult(0,0,1,0,1,0,true,0),
+		NewResult(1,0,2,0,0,0,false,0),
 		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,1,0,1,0,1,false,0),
-		NewResult(4,3,0,1,2,1,false,0),
-		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(3,0,1,1,0,1,false,0),
+		NewResult(4,0,3,1,2,1,false,0),
+		NewResult(5,0,1,1,0,0,true,0),
 	}
 	
 	leadingAtHalfTimeResults := leadingAtHalfTime(allResults)
@@ -89,12 +89,12 @@ func TestLeadingAtHalfTime(t *testing.T){
 
 func TestTrailingAtHalfTime(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,1,0,true,0),
-		NewResult(1,2,0,0,1,2,false,0),
+		NewResult(0,0,1,0,1,0,true,0),
+		NewResult(1,0,2,0,1,2,false,0),
 		NewResult(2,0,0,3,0,0,true,0),
-		NewResult(3,1,0,1,0,1,false,0),
-		NewResult(4,3,0,1,0,1,false,0),
-		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(3,0,1,1,0,1,false,0),
+		NewResult(4,0,3,1,0,1,false,0),
+		NewResult(5,0,1,1,0,0,true,0),
 	}
 	
 	results := trailingAtHalfTime(allResults)
@@ -106,12 +106,12 @@ func TestTrailingAtHalfTime(t *testing.T){
 
 func TestResultsBySeason(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,1,0,true,0),
-		NewResult(1,2,0,0,1,2,false,1),
+		NewResult(0,0,1,0,1,0,true,0),
+		NewResult(1,0,2,0,1,2,false,1),
 		NewResult(2,0,0,3,0,0,true,1),
-		NewResult(3,1,0,1,0,1,false,1),
-		NewResult(4,3,0,1,0,1,false,1),
-		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(3,0,1,1,0,1,false,1),
+		NewResult(4,0,3,1,0,1,false,1),
+		NewResult(5,0,1,1,0,0,true,0),
 	}
 	
 	results := ResultsBySeason(allResults, 1)
@@ -122,12 +122,12 @@ func TestResultsBySeason(t *testing.T){
 
 func TestResultsByOpponent(t *testing.T){
 	allResults  := []Result{
-		NewResult(0,1,0,0,1,0,true,0),
-		NewResult(1,2,1,0,1,2,false,0),
+		NewResult(0,0,1,0,1,0,true,0),
+		NewResult(1,1,2,0,1,2,false,0),
 		NewResult(2,0,0,3,0,0,true,0),
 		NewResult(3,1,1,1,0,1,false,0),
-		NewResult(4,3,0,1,0,1,false,0),
-		NewResult(5,1,0,1,0,0,true,0),
+		NewResult(4,0,3,1,0,1,false,0),
+		NewResult(5,0,1,1,0,0,true,0),
 	}
 	
 	results := ResultsByOpponent(allResults, 1)
