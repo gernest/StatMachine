@@ -105,7 +105,7 @@ func TestTrailingAtHalfTime(t *testing.T){
 }
 
 func TestResultsBySeason(t *testing.T){
-		allResults  := []Result{
+	allResults  := []Result{
 		NewResult(0,1,0,0,1,0,true,0),
 		NewResult(1,2,0,0,1,2,false,1),
 		NewResult(2,0,0,3,0,0,true,1),
@@ -117,5 +117,21 @@ func TestResultsBySeason(t *testing.T){
 	results := getResultsBySeason(allResults, 1)
 	if 4!=len(results){
 		t.Errorf("Didnt get correct numer of results when filtering by season, got %v, expected 4", len(results))
+	}
+}
+
+func TestResultsByOpponent(t *testing.T){
+	allResults  := []Result{
+		NewResult(0,1,0,0,1,0,true,0),
+		NewResult(1,2,1,0,1,2,false,0),
+		NewResult(2,0,0,3,0,0,true,0),
+		NewResult(3,1,1,1,0,1,false,0),
+		NewResult(4,3,0,1,0,1,false,0),
+		NewResult(5,1,0,1,0,0,true,0),
+	}
+	
+	results := getResultsByOpponent(allResults, 1)
+	if 2!=len(results){
+		t.Errorf("Didnt get correct numer of results when filtering by oppoent, got %v, expected 2", len(results))
 	}
 }

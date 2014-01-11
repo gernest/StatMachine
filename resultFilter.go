@@ -20,6 +20,10 @@ func getResultsBySeason(res []Result, seasonId int) []Result {
 	return filterResults(res, func(r Result) bool{return seasonId == r.seasonId})
 }
 
+func getResultsByOpponent(res []Result, opponentId int) []Result{
+	return filterResults(res, func(r Result) bool{return opponentId == r.opponentId})
+}
+
 func filterResults(res []Result, f func(Result) bool) []Result{
 	filtered := make([]Result,0)
 	
