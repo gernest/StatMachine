@@ -16,11 +16,11 @@ func trailingAtHalfTime(res []Result) []Result {
 	return filterResults(res, func(r Result) bool{return r.goalsAtHalfTime<r.opponentGoalsAtHalfTime})
 }
 
-func getResultsBySeason(res []Result, seasonId int) []Result {
+func ResultsBySeason(res []Result, seasonId int) []Result {
 	return filterResults(res, func(r Result) bool{return seasonId == r.seasonId})
 }
 
-func getResultsByOpponent(res []Result, opponentId int) []Result{
+func ResultsByOpponent(res []Result, opponentId int) []Result{
 	return filterResults(res, func(r Result) bool{return opponentId == r.opponentId})
 }
 

@@ -114,7 +114,7 @@ func TestResultsBySeason(t *testing.T){
 		NewResult(5,1,0,1,0,0,true,0),
 	}
 	
-	results := getResultsBySeason(allResults, 1)
+	results := ResultsBySeason(allResults, 1)
 	if 4!=len(results){
 		t.Errorf("Didnt get correct numer of results when filtering by season, got %v, expected 4", len(results))
 	}
@@ -130,7 +130,7 @@ func TestResultsByOpponent(t *testing.T){
 		NewResult(5,1,0,1,0,0,true,0),
 	}
 	
-	results := getResultsByOpponent(allResults, 1)
+	results := ResultsByOpponent(allResults, 1)
 	if 2!=len(results){
 		t.Errorf("Didnt get correct numer of results when filtering by oppoent, got %v, expected 2", len(results))
 	}
