@@ -6,6 +6,9 @@ type Team struct{
 	Results []Result
 }
 
+func (t Team) Id() int{
+	return t.id
+}
 func NewTeam(teamId int, teamName string) *Team{
 	return &Team{teamId, teamName, make([]Result, 0,0)}
 }
