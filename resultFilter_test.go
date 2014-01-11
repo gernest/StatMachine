@@ -102,4 +102,20 @@ func TestTrailingAtHalfTime(t *testing.T){
 	if 3!=len(results){
 		t.Errorf("Didnt get correct number of results trailing at half time, got %v, expected 3", len(results))
 	}
-}	
+}
+
+func TestResultsBySeason(t *testing.T){
+		allResults  := []Result{
+		NewResult(0,1,0,1,0,true,0),
+		NewResult(1,2,0,1,2,false,1),
+		NewResult(2,0,3,0,0,true,1),
+		NewResult(3,1,1,0,1,false,1),
+		NewResult(4,3,1,0,1,false,1),
+		NewResult(5,1,1,0,0,true,0),
+	}
+	
+	results := getResultsBySeason(allResults, 1)
+	if 4!=len(results){
+		t.Errorf("Didnt get correct numer of results when filtering by season, got %v, expected 4", len(results))
+	}
+}

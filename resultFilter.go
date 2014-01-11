@@ -16,6 +16,10 @@ func trailingAtHalfTime(res []Result) []Result {
 	return filterResults(res, func(r Result) bool{return r.goalsAtHalfTime<r.opponentGoalsAtHalfTime})
 }
 
+func getResultsBySeason(res []Result, seasonId int) []Result {
+	return filterResults(res, func(r Result) bool{return seasonId == r.seasonId})
+}
+
 func filterResults(res []Result, f func(Result) bool) []Result{
 	filtered := make([]Result,0)
 	
