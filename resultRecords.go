@@ -1,11 +1,20 @@
 package statmachine
 
-func biggestWin(res []Result) Result{
-	win := Result{}
+func biggestWins(res []Result) []Result{
+	wins := make([] Result, 0)
+	maxWinBy :=0
 	for _,r :=range res{
-		if((goalsScored(r)-goalsConceded(r))>goalsScored(win)-goalsConceded(win)){
-			win = r
+		if(isWin(r)){
+			scored :=goalsScored(r)
+			conceded :=goalsConceded(r)
+			if((scored-conceded)>maxWinBy){
+				maxWinBy = goalsScored(r)-goalsConceded(r)
+				wins = make([] Result, 0)
+				wins = append(wins, r)
+			}else if((scored-conceded)==maxWinBy){
+				wins = append(wins, r)
+			}
 		}
 	}
-	return win
+	return wins
 }
