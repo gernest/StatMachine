@@ -8,11 +8,15 @@ func BiggestLosses(res []Result) []Result{
 	return findMaximizingResults(res, isLoss, func(r Result) int {return goalsConceded(r)-goalsScored(r)})
 }
 
+func HighestScoring(res []Result) []Result{
+	return findMaximizingResults(res, nil, func(r Result) int {return goalsConceded(r)+goalsScored(r)})
+}
+
 func findMaximizingResults(res []Result, filter func(Result) bool, f func(Result) int) []Result{
 	results :=make([]Result, 0)
 	maxValue :=0
 	for _,r := range res{
-		if(filter(r)){
+		if(nil==filter || filter(r)){
 			currentValue :=f(r)
 			if(currentValue>maxValue){
 				maxValue = currentValue
