@@ -28,3 +28,11 @@ func TotalNumberOfResults(league League) int{
 	}
 	return numResults
 }
+
+func AllResults(league League) []Result{
+	res :=make([]Result, 0)
+	for _,t := range league.Teams{
+		res = append(res, t.Results...)
+	}
+	return res
+}

@@ -1,6 +1,6 @@
 package statmachine
 
-func biggestWins(res []Result) []Result{
+func BiggestWins(res []Result) []Result{
 	wins := make([] Result, 0)
 	maxWinBy :=0
 	for _,r :=range res{
