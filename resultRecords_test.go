@@ -15,7 +15,7 @@ func TestBiggestWin(t *testing.T){
 		NewResult(5,0,1,1,0,0,true,0, time.Now()),
 	}
 	
-	wins := biggestWins(allResults)
+	wins := BiggestWins(allResults)
 	if(1!=len(wins)){
 		t.Errorf("Didnt get correct # of biggest wins, expected 1 but got %v", wins)
 	}
@@ -34,7 +34,7 @@ func TestBiggestWinIfNoWin(t *testing.T){
 		NewResult(5,0,1,1,0,0,true,0, time.Now()),
 	}
 	
-	wins := biggestWins(allResults)
+	wins := BiggestWins(allResults)
 	if(0!=len(wins)){
 		t.Errorf("Didnt get correct biggest wins, expected to not find any but found %v", len(wins))
 	}
@@ -50,7 +50,7 @@ func TestBiggestWinIfMultiple(t *testing.T){
 		NewResult(5,0,3,0,1,0,true,0, time.Now()),
 	}
 	
-	wins := biggestWins(allResults)
+	wins := BiggestWins(allResults)
 	if(3!=len(wins)){
 		t.Errorf("Didnt get correct # of biggest wins, expected 3 but got %v", wins)
 	}
