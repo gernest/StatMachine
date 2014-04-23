@@ -44,3 +44,19 @@ func scoredAGoal(r Result) bool{
 func concededAGoal(r Result) bool{
 	return r.opponentGoals>0
 }
+
+func scoredInFirstHalf(r Result) bool{
+	return r.goalsAtHalfTime>0
+}
+
+func scoredInSecondHalf(r Result) bool{
+	return r.goalsAtHalfTime<r.goals
+}
+
+func concededInFirstHalf(r Result) bool{
+	return r.opponentGoalsAtHalfTime>0
+}
+
+func concededInSecondHalf(r Result) bool{
+	return r.opponentGoalsAtHalfTime<r.opponentGoals
+}

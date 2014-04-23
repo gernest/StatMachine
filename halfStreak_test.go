@@ -69,3 +69,48 @@ func TestSecondHalfsConcededInInARow(t *testing.T){
 		t.Errorf("Didnt get correct number of second halfs conceded in in a row, got %v, expected 4", count)
 	}
 }
+
+func TestHalfsScoredInARow(t *testing.T){
+	allResults := []Result{
+		NewResult(0,0,1,0,1,0,true,0, time.Now()),
+		NewResult(1,0,2,1,0,0,true,0, time.Now()),
+		NewResult(2,0,2,3,1,2,true,0, time.Now()),
+		NewResult(3,0,3,1,2,0,true,0, time.Now()),
+		NewResult(2,0,0,3,1,2,true,0, time.Now()),
+		NewResult(3,0,1,4,1,4,true,0, time.Now()),	
+	}
+
+	count := halfsScoredInInARow(allResults)
+
+	if 6!=count{
+		t.Errorf("Didnt get correct number of halfs socred in in a row, got %v, expected 6", count)
+	}
+}
+
+func TestHalfsScoredInInARowWhenNoResults(t *testing.T) {
+	allResults := []Result{
+	}
+
+	count := halfsScoredInInARow(allResults)
+
+	if 0!=count{
+		t.Errorf("Didnt get correct number of halfs socred in in a row, got %v, expected 0", count)
+	}
+}
+
+func TestHalfsScoredInInARowWhenOnlyOne(t *testing.T){
+	allResults := []Result{
+		NewResult(0,0,1,0,1,0,true,0, time.Now()),//scored in first half
+		NewResult(1,0,1,1,0,0,true,0, time.Now()),//scores in second half
+		NewResult(2,0,0,0,0,0,true,0, time.Now()),//does not score
+		NewResult(3,0,3,0,3,0,true,0, time.Now()),//scores in second half
+		NewResult(2,0,0,3,0,2,true,0, time.Now()),//does not score
+		NewResult(3,0,1,4,0,3,true,0, time.Now()),//scores in scond half
+	}
+
+	count := halfsScoredInInARow(allResults)
+
+	if 1!=count{
+		t.Errorf("Didnt get correct number of halfs socred in in a row, got %v, expected 1", count)
+	}
+}
