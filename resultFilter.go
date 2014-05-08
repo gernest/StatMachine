@@ -37,7 +37,7 @@ func ResultsByRounds(res []Result, rounds []int) []Result {
 
 func oneOfGiveRounds(res Result, rounds []int) bool {
 	for _, round := range rounds {
-		if round == res.Round {
+		if round == res.Round() {
 			return true
 		}
 	}

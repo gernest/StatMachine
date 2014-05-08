@@ -12,7 +12,7 @@ type Result struct{
 	isHomeGame bool
 	seasonId int
 	date time.Time
-	Round int
+	round int
 }
 
 func NewResult(resultId int, resultOpponentId int, resultGoals int,  resultOpponentGoals int, resultGoalsAtHalfTime int, resultOpponentGoalsAtHalfTime int, resultIsHomeGame bool, resultSeasonId int, resultDate time.Time) Result{
@@ -64,4 +64,24 @@ func concededInFirstHalf(r Result) bool{
 
 func concededInSecondHalf(r Result) bool{
 	return r.opponentGoalsAtHalfTime<r.opponentGoals
+}
+
+func (r Result) Goals() int{
+	return r.goals
+}
+
+func (r Result) OpponentGoals() int {
+	return r.opponentGoals
+}
+
+func (r Result) IsHomeGame() bool {
+	return r.isHomeGame
+}
+
+func (r Result) Date() time.Time {
+	return r.date
+}
+
+func (r Result) Round() int {
+	return r.round
 }
