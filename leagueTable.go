@@ -1,7 +1,9 @@
 package statmachine
 
+import "sort"
+
 type LeagueTable struct {
-	LeaguePositions []LeaguePosition
+	Positions []LeaguePosition
 }
 
 type LeaguePosition struct {
@@ -14,7 +16,12 @@ type LeaguePosition struct {
 }
 
 func GenerateLeagueTable(league League, seasonId int) LeagueTable {
-	return LeagueTable{LeaguePositions: []LeaguePosition{
-		LeaguePosition{Place: 1, Points: 0, Wins: 0, Draws: 0, Losses: 0},
-		LeaguePosition{Place: 2, Points: 0, Wins: 0, Draws: 0, Losses: 0}}}
+
+	table := LeagueTable{Positions: []LeaguePosition{}}
+
+	sort.Sort(ByName(league.Teams))
+	for i, t := range league.Teams {
+		table.Positions = append(table.Positions, LeaguePosition{Place: uint8(i+1), Points: 0, Wins: 0, Draws: 0, Losses: 0, TeamName: t.Name})
+	}
+	return table
 }
