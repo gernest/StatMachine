@@ -10,11 +10,11 @@ func (t Team) Id() int {
 	return t.id
 }
 
-func NewTeam(teamId int, teamName string) Team {
-	return Team{teamId, teamName, make([]Result, 0, 0)}
+func NewTeam(teamId int, teamName string) *Team {
+	return &Team{teamId, teamName, make([]Result, 0, 0)}
 }
 
-type ByName []Team
+type ByName []*Team
 
 func (t ByName) Len() int {
 	return len(t)
