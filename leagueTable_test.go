@@ -190,6 +190,30 @@ func verifyLeaguePosition(t *testing.T, pos *LeaguePosition, expectedPlace uint8
 	}
 }
 
+func TestLeagueTableIsSortedByPointsThenGoalDifference(t *testing.T) {
+
+	league := NewLeague("Test League")
+	teamLiverpool := NewTeam(1, "Liverpool")
+	result := NewResultWithRound(1, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1)
+	teamLiverpool.Results = append(teamLiverpool.Results, result)
+
+	teamChelsea := NewTeam(2, "Chelsea")
+	result = NewResultWithRound(2, 3, 5, 0, 1, 0, true, 2014, time.Now(), 1)
+	teamChelsea.Results = append(teamChelsea.Results, result)
+
+	league.Teams = append(league.Teams, teamLiverpool)
+	league.Teams = append(league.Teams, teamChelsea)
+	league.Teams = append(league.Teams, NewTeam(3, "Arsenal"))
+
+	leagueTable := GenerateLeagueTable(league, 2014)
+	//printLeagueTable(leagueTable)
+	if 2 != len(leagueTable.Positions) {
+		t.Errorf("didnt get 2 league positions as expected, got %v", len(leagueTable.Positions))
+	}
+	verifyLeaguePosition(t, leagueTable.Positions[0], 1, 3, 1, 0, 0, 5, 0, "Chelsea")
+	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 3, 1, 0, 0, 4, 0, "Liverpool")
+}
+
 func printLeagueTable(table LeagueTable) {
 	fmt.Println("Points - Place, w-d-l Team")
 	for _, p := range table.Positions {

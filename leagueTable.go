@@ -60,7 +60,7 @@ func GenerateLeagueTable(league League, seasonId int) LeagueTable {
 		}
 	}
 
-	sort.Sort(ByPoints(table.Positions))
+	sort.Sort(ByPointsThenGoalDifference(table.Positions))
 
 	for i, _ := range table.Positions {
 		table.Positions[i].Place = uint8(i + 1)
@@ -68,16 +68,17 @@ func GenerateLeagueTable(league League, seasonId int) LeagueTable {
 	return table
 }
 
-type ByPoints []*LeaguePosition
+type ByPointsThenGoalDifference []*LeaguePosition
 
-func (p ByPoints) Len() int {
+func (p ByPointsThenGoalDifference) Len() int {
 	return len(p)
 }
 
-func (p ByPoints) Swap(i int, j int) {
+func (p ByPointsThenGoalDifference) Swap(i int, j int) {
 	p[i], p[j] = p[j], p[i]
 }
 
-func (p ByPoints) Less(i int, j int) bool {
-	return p[i].Points > p[j].Points
+func (p ByPointsThenGoalDifference) Less(i int, j int) bool {
+	return p[i].Points > p[j].Points || 
+	(p[i].Points == p[j].Points && (p[i].GoalsFor - p[i].GoalsAgainst) > (p[j].GoalsFor - p[j].GoalsAgainst))
 }
