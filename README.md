@@ -45,7 +45,7 @@ would give you their results in the first 3 rounds of each season:
 filteredResults := statmachine.ResultsByRounds(home.Results, []int{1,2, 3})
 Using these filters and combining them can be quite powerful. If results
 contains all results for a given team, you could filter them 
-```go
+```
 
 # League Tables #
 The library supports creating league tables on a given set of results. 
