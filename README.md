@@ -42,9 +42,15 @@ If results contains all results for a given team, the following snippet
 would give you their results in the first 3 rounds of each season:
 
 ```go
-filteredResults := statmachine.ResultsByRounds(home.Results, []int{1,2, 3})
-Using these filters and combining them can be quite powerful. If results
-contains all results for a given team, you could filter them 
+filteredResults := statmachine.ResultsByRounds(results, []int{1,2, 3})
+```
+Combining these filters can be quite powerful. If results
+contains all results for a given team, you could get all results against a
+certain team at home with the following snippet:
+
+```go
+atHome := statmachine.HomeResults(results)
+atHomeVsTeamA := statmachine.ResultsByOpponent(atHome, opponentId)
 ```
 
 # League Tables #
