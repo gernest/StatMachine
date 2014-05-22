@@ -9,11 +9,11 @@ func AwayResults(res []Result) []Result {
 }
 
 func leadingAtHalfTime(res []Result) []Result {
-	return filterResults(res, func(r Result) bool { return r.goalsAtHalfTime > r.opponentGoalsAtHalfTime })
+	return filterResults(res, func(r Result) bool { return r.GoalsAtHalfTime > r.opponentGoalsAtHalfTime })
 }
 
 func trailingAtHalfTime(res []Result) []Result {
-	return filterResults(res, func(r Result) bool { return r.goalsAtHalfTime < r.opponentGoalsAtHalfTime })
+	return filterResults(res, func(r Result) bool { return r.GoalsAtHalfTime < r.opponentGoalsAtHalfTime })
 }
 
 func ResultsBySeason(res []Result, seasonId int) []Result {
