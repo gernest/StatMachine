@@ -1,11 +1,11 @@
 package statmachine
 
 func HomeResults(res []Result) []Result {
-	return filterResults(res, func(r Result) bool { return r.isHomeGame })
+	return filterResults(res, func(r Result) bool { return r.IsHomeGame })
 }
 
 func AwayResults(res []Result) []Result {
-	return filterResults(res, func(r Result) bool { return !r.isHomeGame })
+	return filterResults(res, func(r Result) bool { return !r.IsHomeGame })
 }
 
 func leadingAtHalfTime(res []Result) []Result {
