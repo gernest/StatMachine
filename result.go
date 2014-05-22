@@ -23,9 +23,6 @@ func NewResultWithRound(resultId int, resultOpponentId int, resultGoals int, res
 	return Result{resultId, resultOpponentId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame, resultSeasonId, resultDate, resultRound}
 }
 
-func goalsConceded(r Result) int {
-	return r.OpponentGoals
-}
 func isWin(r Result) bool {
 	return r.Goals > r.OpponentGoals
 }

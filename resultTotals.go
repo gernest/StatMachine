@@ -25,7 +25,7 @@ func totalGoalsScored(res []Result) int {
 }
 
 func totalGoalsConceded(res []Result) int {
-	return sumTotal(res, goalsConceded)
+	return sumTotal(res, func(r Result) int {return r.OpponentGoals })
 }
 
 func sumTotal(res []Result, f func(Result) int) int {

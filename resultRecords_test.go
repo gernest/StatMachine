@@ -19,7 +19,7 @@ func TestBiggestWin(t *testing.T) {
 	if 1 != len(wins) {
 		t.Errorf("Didnt get correct # of biggest wins, expected 1 but got %v", wins)
 	}
-	if !(4 == wins[0].Goals && 0 == goalsConceded(wins[0])) {
+	if !(4 == wins[0].Goals && 0 == wins[0].OpponentGoals) {
 		t.Errorf("Didnt get correct biggest win, got %v", wins[0])
 	}
 }
@@ -56,8 +56,8 @@ func TestBiggestWinIfMultiple(t *testing.T) {
 	}
 
 	for _, r := range wins {
-		if r.Goals-goalsConceded(r) != 3 {
-			t.Errorf("Got a result with unexpected goal difference in TestBiggestWinIfMultiple, got %v, expected 3", r.Goals-goalsConceded(r))
+		if r.Goals-r.OpponentGoals != 3 {
+			t.Errorf("Got a result with unexpected goal difference in TestBiggestWinIfMultiple, got %v, expected 3", r.Goals-r.OpponentGoals)
 		}
 	}
 }
@@ -76,7 +76,7 @@ func TestBiggestLosses(t *testing.T) {
 	if 1 != len(losses) {
 		t.Errorf("Didnt get correct # of biggest losses, expected 1 but got %v", losses)
 	}
-	if !(0 == losses[0].Goals && 3 == goalsConceded(losses[0])) {
+	if !(0 == losses[0].Goals && 3 == losses[0].OpponentGoals) {
 		t.Errorf("Didnt get correct biggest loss, got %v", losses[0])
 	}
 }
@@ -107,8 +107,8 @@ func TestBiggestLossesIfMultiple(t *testing.T) {
 	}
 
 	for _, r := range losses {
-		if r.Goals-goalsConceded(r) != -2 {
-			t.Errorf("Got a result with unexpected goal difference in TestBiggestLossesIfMultiple, got %v, expected -2", r.Goals-goalsConceded(r))
+		if r.Goals-r.OpponentGoals != -2 {
+			t.Errorf("Got a result with unexpected goal difference in TestBiggestLossesIfMultiple, got %v, expected -2", r.Goals-r.OpponentGoals)
 		}
 	}
 }
@@ -127,7 +127,7 @@ func TestHighestScoring(t *testing.T) {
 	if 1 != len(highestScoring) {
 		t.Errorf("Didnt get correct # of biggest scoring results, expected 1 but got %v", highestScoring)
 	}
-	if !(5 == highestScoring[0].Goals && 2 == goalsConceded(highestScoring[0])) {
+	if !(5 == highestScoring[0].Goals && 2 == highestScoring[0].OpponentGoals) {
 		t.Errorf("Didnt get correct biggest scoring, got %v", highestScoring[0])
 	}
 }
@@ -148,8 +148,8 @@ func TestBiggestScoringResultsIfMultiple(t *testing.T) {
 	}
 
 	for _, r := range highestScoring {
-		if r.Goals+goalsConceded(r) != 4 {
-			t.Errorf("Got a result with unexpected goal sum in TestBiggestScoringResults, got %v, expected 4", r.Goals+goalsConceded(r))
+		if r.Goals+r.OpponentGoals != 4 {
+			t.Errorf("Got a result with unexpected goal sum in TestBiggestScoringResults, got %v, expected 4", r.Goals+r.OpponentGoals)
 		}
 	}
 }
