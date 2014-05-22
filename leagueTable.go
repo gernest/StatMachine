@@ -79,6 +79,6 @@ func (p ByPointsThenGoalDifference) Swap(i int, j int) {
 }
 
 func (p ByPointsThenGoalDifference) Less(i int, j int) bool {
-	return p[i].Points > p[j].Points || 
-	(p[i].Points == p[j].Points && (p[i].GoalsFor - p[i].GoalsAgainst) > (p[j].GoalsFor - p[j].GoalsAgainst))
+	return p[i].Points > p[j].Points ||
+		(p[i].Points == p[j].Points && (p[i].GoalsFor-p[i].GoalsAgainst) > (p[j].GoalsFor-p[j].GoalsAgainst))
 }
