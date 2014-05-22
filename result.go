@@ -5,7 +5,7 @@ import "time"
 type Result struct {
 	id                      int
 	opponentId              int
-	goals                   int
+	Goals                   int
 	opponentGoals           int
 	goalsAtHalfTime         int
 	opponentGoalsAtHalfTime int
@@ -24,26 +24,26 @@ func NewResultWithRound(resultId int, resultOpponentId int, resultGoals int, res
 }
 
 func goalsScored(r Result) int {
-	return r.goals
+	return r.Goals
 }
 
 func goalsConceded(r Result) int {
 	return r.opponentGoals
 }
 func isWin(r Result) bool {
-	return r.goals > r.opponentGoals
+	return r.Goals > r.opponentGoals
 }
 
 func isLoss(r Result) bool {
-	return r.goals < r.opponentGoals
+	return r.Goals < r.opponentGoals
 }
 
 func isDraw(r Result) bool {
-	return r.goals == r.opponentGoals
+	return r.Goals == r.opponentGoals
 }
 
 func scoredAGoal(r Result) bool {
-	return r.goals > 0
+	return r.Goals > 0
 }
 
 func concededAGoal(r Result) bool {
@@ -55,7 +55,7 @@ func scoredInFirstHalf(r Result) bool {
 }
 
 func scoredInSecondHalf(r Result) bool {
-	return r.goalsAtHalfTime < r.goals
+	return r.goalsAtHalfTime < r.Goals
 }
 
 func concededInFirstHalf(r Result) bool {
@@ -64,10 +64,6 @@ func concededInFirstHalf(r Result) bool {
 
 func concededInSecondHalf(r Result) bool {
 	return r.opponentGoalsAtHalfTime < r.opponentGoals
-}
-
-func (r Result) Goals() int {
-	return r.goals
 }
 
 func (r Result) OpponentGoals() int {
