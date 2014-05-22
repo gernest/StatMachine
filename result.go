@@ -23,10 +23,6 @@ func NewResultWithRound(resultId int, resultOpponentId int, resultGoals int, res
 	return Result{resultId, resultOpponentId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame, resultSeasonId, resultDate, resultRound}
 }
 
-func goalsScored(r Result) int {
-	return r.Goals
-}
-
 func goalsConceded(r Result) int {
 	return r.OpponentGoals
 }
