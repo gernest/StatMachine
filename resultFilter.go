@@ -17,7 +17,7 @@ func trailingAtHalfTime(res []Result) []Result {
 }
 
 func ResultsBySeason(res []Result, seasonId int) []Result {
-	return filterResults(res, func(r Result) bool { return seasonId == r.seasonId })
+	return filterResults(res, func(r Result) bool { return seasonId == r.SeasonId })
 }
 
 func ResultsByOpponent(res []Result, opponentId int) []Result {

@@ -10,7 +10,7 @@ type Result struct {
 	GoalsAtHalfTime         int
 	OpponentGoalsAtHalfTime int
 	IsHomeGame              bool
-	seasonId                int
+	SeasonId                int
 	Date                    time.Time
 	Round                   int
 }
@@ -64,8 +64,4 @@ func concededInFirstHalf(r Result) bool {
 
 func concededInSecondHalf(r Result) bool {
 	return r.OpponentGoalsAtHalfTime < r.OpponentGoals
-}
-
-func (r Result) SeasonId() int {
-	return r.seasonId
 }

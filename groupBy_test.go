@@ -17,7 +17,7 @@ func TestGroupBySeasonId(t *testing.T) {
 		NewResult(6, 0, 1, 1, 0, 0, true, 2014, time.Now()),
 	}
 
-	groupedResults := GroupBy(allResults, func(r Result) string { return strconv.Itoa(r.SeasonId()) })
+	groupedResults := GroupBy(allResults, func(r Result) string { return strconv.Itoa(r.SeasonId) })
 
 	if 4 != len(groupedResults) {
 		t.Errorf("Didnt get correct number of grouped results, got %v, expected 4", len(groupedResults))

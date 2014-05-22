@@ -37,7 +37,7 @@ func GenerateLeagueTable(league League, seasonId int) LeagueTable {
 
 	for _, t := range league.Teams {
 		for _, r := range t.Results {
-			if seasonId == r.seasonId {
+			if seasonId == r.SeasonId {
 				pos := table.findByTeamName(t.Name)
 				if nil == pos {
 					pos = new(LeaguePosition)
