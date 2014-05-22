@@ -3,7 +3,7 @@ package statmachine
 import "time"
 
 type Result struct {
-	id                      int
+	Id                      int
 	OpponentId              int
 	Goals                   int
 	OpponentGoals           int
