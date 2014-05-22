@@ -21,7 +21,7 @@ func ResultsBySeason(res []Result, seasonId int) []Result {
 }
 
 func ResultsByOpponent(res []Result, opponentId int) []Result {
-	return filterResults(res, func(r Result) bool { return opponentId == r.opponentId })
+	return filterResults(res, func(r Result) bool { return opponentId == r.OpponentId })
 }
 
 func ResultsByRounds(res []Result, rounds []int) []Result {

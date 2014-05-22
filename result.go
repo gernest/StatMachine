@@ -4,7 +4,7 @@ import "time"
 
 type Result struct {
 	id                      int
-	opponentId              int
+	OpponentId              int
 	Goals                   int
 	OpponentGoals           int
 	GoalsAtHalfTime         int
