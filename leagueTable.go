@@ -46,7 +46,7 @@ func GenerateLeagueTable(league League, seasonId int) LeagueTable {
 					table.Positions = append(table.Positions, pos)
 				}
 				pos.GoalsFor = pos.GoalsFor + uint8(r.Goals)
-				pos.GoalsAgainst = pos.GoalsAgainst + uint8(r.OpponentGoals())
+				pos.GoalsAgainst = pos.GoalsAgainst + uint8(r.OpponentGoals)
 				if isWin(r) {
 					pos.Points = pos.Points + 3
 					pos.Wins = pos.Wins + 1

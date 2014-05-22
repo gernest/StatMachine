@@ -6,7 +6,7 @@ type Result struct {
 	id                      int
 	opponentId              int
 	Goals                   int
-	opponentGoals           int
+	OpponentGoals           int
 	goalsAtHalfTime         int
 	opponentGoalsAtHalfTime int
 	isHomeGame              bool
@@ -28,18 +28,18 @@ func goalsScored(r Result) int {
 }
 
 func goalsConceded(r Result) int {
-	return r.opponentGoals
+	return r.OpponentGoals
 }
 func isWin(r Result) bool {
-	return r.Goals > r.opponentGoals
+	return r.Goals > r.OpponentGoals
 }
 
 func isLoss(r Result) bool {
-	return r.Goals < r.opponentGoals
+	return r.Goals < r.OpponentGoals
 }
 
 func isDraw(r Result) bool {
-	return r.Goals == r.opponentGoals
+	return r.Goals == r.OpponentGoals
 }
 
 func scoredAGoal(r Result) bool {
@@ -47,7 +47,7 @@ func scoredAGoal(r Result) bool {
 }
 
 func concededAGoal(r Result) bool {
-	return r.opponentGoals > 0
+	return r.OpponentGoals > 0
 }
 
 func scoredInFirstHalf(r Result) bool {
@@ -63,11 +63,7 @@ func concededInFirstHalf(r Result) bool {
 }
 
 func concededInSecondHalf(r Result) bool {
-	return r.opponentGoalsAtHalfTime < r.opponentGoals
-}
-
-func (r Result) OpponentGoals() int {
-	return r.opponentGoals
+	return r.opponentGoalsAtHalfTime < r.OpponentGoals
 }
 
 func (r Result) IsHomeGame() bool {
