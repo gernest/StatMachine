@@ -43,7 +43,7 @@ func (r Result) ConcededAGoal() bool {
 	return r.OpponentGoals > 0
 }
 
-func scoredInFirstHalf(r Result) bool {
+func (r Result) ScoredInFirstHalf() bool {
 	return r.GoalsAtHalfTime > 0
 }
 
