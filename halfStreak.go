@@ -13,7 +13,7 @@ func firstHalfsConcededInInARow(res []Result) int {
 }
 
 func secondHalfsConcededInInARow(res []Result) int {
-	return longestSequence(res, func(r Result) bool { return concededInSecondHalf(r) })
+	return longestSequence(res, func(r Result) bool { return r.ConcededInSecondHalf() })
 }
 
 func halfsScoredInInARow(res []Result) int {
@@ -21,7 +21,7 @@ func halfsScoredInInARow(res []Result) int {
 }
 
 func halfsConcededInInARow(res []Result) int {
-	return findLongestSequencOfHalfs(res, func(r Result) bool {return r.ConcededInFirstHalf() }, concededInSecondHalf)
+	return findLongestSequencOfHalfs(res, func(r Result) bool {return r.ConcededInFirstHalf() }, func(r Result) bool { return r.ConcededInSecondHalf() })
 }
 
 func findLongestSequencOfHalfs(res []Result, firstHalf func(Result) bool, secondHalf func(Result) bool) int {
