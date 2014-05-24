@@ -7,12 +7,12 @@ import (
 
 func TestAtHome(t *testing.T) {
 	allResults := []Result{
-		NewResult(0, 0, 1, 0, 0, 0, true, 0, time.Now()),
-		NewResult(1, 0, 2, 0, 0, 0, false, 0, time.Now()),
-		NewResult(2, 0, 0, 3, 0, 0, true, 0, time.Now()),
-		NewResult(3, 0, 1, 1, 0, 0, false, 0, time.Now()),
-		NewResult(4, 0, 3, 1, 0, 0, false, 0, time.Now()),
-		NewResult(5, 0, 1, 1, 0, 0, true, 0, time.Now()),
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(),1},
+		Result{1, 0, 2, 0, 0, 0, false, 0, time.Now(),1},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(),1},
+		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(),1},
+		Result{4, 0, 3, 1, 0, 0, false, 0, time.Now(),1},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(),1},
 	}
 
 	homeResults := HomeResults(allResults)
@@ -24,12 +24,12 @@ func TestAtHome(t *testing.T) {
 
 func TestAtHomeWhenNoHomeGames(t *testing.T) {
 	allResults := []Result{
-		NewResult(0, 0, 1, 0, 0, 0, false, 0, time.Now()),
-		NewResult(1, 0, 2, 0, 0, 0, false, 0, time.Now()),
-		NewResult(2, 0, 0, 3, 0, 0, false, 0, time.Now()),
-		NewResult(3, 0, 1, 1, 0, 0, false, 0, time.Now()),
-		NewResult(4, 0, 3, 1, 0, 0, false, 0, time.Now()),
-		NewResult(5, 0, 1, 1, 0, 0, false, 0, time.Now()),
+		Result{0, 0, 1, 0, 0, 0, false, 0, time.Now(),1},
+		Result{1, 0, 2, 0, 0, 0, false, 0, time.Now(),1},
+		Result{2, 0, 0, 3, 0, 0, false, 0, time.Now(),1},
+		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(),1},
+		Result{4, 0, 3, 1, 0, 0, false, 0, time.Now(),1},
+		Result{5, 0, 1, 1, 0, 0, false, 0, time.Now(),1},
 	}
 
 	homeResults := HomeResults(allResults)
@@ -41,12 +41,12 @@ func TestAtHomeWhenNoHomeGames(t *testing.T) {
 
 func TestAtAway(t *testing.T) {
 	allResults := []Result{
-		NewResult(0, 0, 1, 0, 0, 0, true, 0, time.Now()),
-		NewResult(1, 0, 2, 0, 0, 0, false, 0, time.Now()),
-		NewResult(2, 0, 0, 3, 0, 0, false, 0, time.Now()),
-		NewResult(3, 0, 1, 1, 0, 0, false, 0, time.Now()),
-		NewResult(4, 0, 3, 1, 0, 0, false, 0, time.Now()),
-		NewResult(5, 0, 1, 1, 0, 0, true, 0, time.Now()),
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(),1},
+		Result{1, 0, 2, 0, 0, 0, false, 0, time.Now(),1},
+		Result{2, 0, 0, 3, 0, 0, false, 0, time.Now(),1},
+		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(),1},
+		Result{4, 0, 3, 1, 0, 0, false, 0, time.Now(),1},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(),1},
 	}
 
 	awayResults := AwayResults(allResults)
@@ -58,12 +58,12 @@ func TestAtAway(t *testing.T) {
 
 func TestAtAwayWhenNoAwayGames(t *testing.T) {
 	allResults := []Result{
-		NewResult(0, 0, 1, 0, 0, 0, true, 0, time.Now()),
-		NewResult(1, 0, 2, 0, 0, 0, true, 0, time.Now()),
-		NewResult(2, 0, 0, 3, 0, 0, true, 0, time.Now()),
-		NewResult(3, 0, 1, 1, 0, 0, true, 0, time.Now()),
-		NewResult(4, 0, 3, 1, 0, 0, true, 0, time.Now()),
-		NewResult(5, 0, 1, 1, 0, 0, true, 0, time.Now()),
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(),1},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(),1},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(),1},
+		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(),1},
+		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(),1},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(),1},
 	}
 
 	awayResults := AwayResults(allResults)
@@ -75,12 +75,12 @@ func TestAtAwayWhenNoAwayGames(t *testing.T) {
 
 func TestLeadingAtHalfTime(t *testing.T) {
 	allResults := []Result{
-		NewResult(0, 0, 1, 0, 1, 0, true, 0, time.Now()),
-		NewResult(1, 0, 2, 0, 0, 0, false, 0, time.Now()),
-		NewResult(2, 0, 0, 3, 0, 0, true, 0, time.Now()),
-		NewResult(3, 0, 1, 1, 0, 1, false, 0, time.Now()),
-		NewResult(4, 0, 3, 1, 2, 1, false, 0, time.Now()),
-		NewResult(5, 0, 1, 1, 0, 0, true, 0, time.Now()),
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(),1},
+		Result{1, 0, 2, 0, 0, 0, false, 0, time.Now(),1},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(),1},
+		Result{3, 0, 1, 1, 0, 1, false, 0, time.Now(),1},
+		Result{4, 0, 3, 1, 2, 1, false, 0, time.Now(),1},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(),1},
 	}
 
 	leadingAtHalfTimeResults := leadingAtHalfTime(allResults)
@@ -92,12 +92,12 @@ func TestLeadingAtHalfTime(t *testing.T) {
 
 func TestTrailingAtHalfTime(t *testing.T) {
 	allResults := []Result{
-		NewResult(0, 0, 1, 0, 1, 0, true, 0, time.Now()),
-		NewResult(1, 0, 2, 0, 1, 2, false, 0, time.Now()),
-		NewResult(2, 0, 0, 3, 0, 0, true, 0, time.Now()),
-		NewResult(3, 0, 1, 1, 0, 1, false, 0, time.Now()),
-		NewResult(4, 0, 3, 1, 0, 1, false, 0, time.Now()),
-		NewResult(5, 0, 1, 1, 0, 0, true, 0, time.Now()),
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(),1},
+		Result{1, 0, 2, 0, 1, 2, false, 0, time.Now(),1},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(),1},
+		Result{3, 0, 1, 1, 0, 1, false, 0, time.Now(),1},
+		Result{4, 0, 3, 1, 0, 1, false, 0, time.Now(),1},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(),1},
 	}
 
 	results := trailingAtHalfTime(allResults)
@@ -109,12 +109,12 @@ func TestTrailingAtHalfTime(t *testing.T) {
 
 func TestResultsBySeason(t *testing.T) {
 	allResults := []Result{
-		NewResult(0, 0, 1, 0, 1, 0, true, 0, time.Now()),
-		NewResult(1, 0, 2, 0, 1, 2, false, 1, time.Now()),
-		NewResult(2, 0, 0, 3, 0, 0, true, 1, time.Now()),
-		NewResult(3, 0, 1, 1, 0, 1, false, 1, time.Now()),
-		NewResult(4, 0, 3, 1, 0, 1, false, 1, time.Now()),
-		NewResult(5, 0, 1, 1, 0, 0, true, 0, time.Now()),
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(),1},
+		Result{1, 0, 2, 0, 1, 2, false, 1, time.Now(),1},
+		Result{2, 0, 0, 3, 0, 0, true, 1, time.Now(),1},
+		Result{3, 0, 1, 1, 0, 1, false, 1, time.Now(),1},
+		Result{4, 0, 3, 1, 0, 1, false, 1, time.Now(),1},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(),1},
 	}
 
 	results := ResultsBySeason(allResults, 1)
@@ -125,12 +125,12 @@ func TestResultsBySeason(t *testing.T) {
 
 func TestResultsByOpponent(t *testing.T) {
 	allResults := []Result{
-		NewResult(0, 0, 1, 0, 1, 0, true, 0, time.Now()),
-		NewResult(1, 1, 2, 0, 1, 2, false, 0, time.Now()),
-		NewResult(2, 0, 0, 3, 0, 0, true, 0, time.Now()),
-		NewResult(3, 1, 1, 1, 0, 1, false, 0, time.Now()),
-		NewResult(4, 0, 3, 1, 0, 1, false, 0, time.Now()),
-		NewResult(5, 0, 1, 1, 0, 0, true, 0, time.Now()),
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(),1},
+		Result{1, 1, 2, 0, 1, 2, false, 0, time.Now(),1},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(),1},
+		Result{3, 1, 1, 1, 0, 1, false, 0, time.Now(),1},
+		Result{4, 0, 3, 1, 0, 1, false, 0, time.Now(),1},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(),1},
 	}
 
 	results := ResultsByOpponent(allResults, 1)
