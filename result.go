@@ -47,7 +47,7 @@ func (r Result) ScoredInFirstHalf() bool {
 	return r.GoalsAtHalfTime > 0
 }
 
-func scoredInSecondHalf(r Result) bool {
+func (r Result) ScoredInSecondHalf() bool {
 	return r.GoalsAtHalfTime < r.Goals
 }
 
