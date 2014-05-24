@@ -35,7 +35,7 @@ func (r Result) IsDraw() bool {
 	return r.Goals == r.OpponentGoals
 }
 
-func scoredAGoal(r Result) bool {
+func (r Result) ScoredAGoal() bool {
 	return r.Goals > 0
 }
 

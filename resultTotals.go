@@ -13,7 +13,7 @@ func gamesDrawn(res []Result) int {
 }
 
 func gamesScoredIn(res []Result) int {
-	return countTotal(res, scoredAGoal)
+	return countTotal(res, func(r Result) bool {return r.ScoredAGoal() })
 }
 
 func cleanSheets(res []Result) int {

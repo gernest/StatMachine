@@ -17,7 +17,7 @@ func gamesNotLostInARow(res []Result) int {
 }
 
 func gamesScoredInInARow(res []Result) int {
-	return countSequence(res, scoredAGoal)
+	return countSequence(res, func(r Result) bool { return r.ScoredAGoal() })
 }
 
 func gamesConcededInARow(res []Result) int {
