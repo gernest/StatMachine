@@ -39,7 +39,7 @@ func (r Result) ScoredAGoal() bool {
 	return r.Goals > 0
 }
 
-func concededAGoal(r Result) bool {
+func (r Result) ConcededAGoal() bool {
 	return r.OpponentGoals > 0
 }
 

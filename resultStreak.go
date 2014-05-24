@@ -21,7 +21,7 @@ func gamesScoredInInARow(res []Result) int {
 }
 
 func gamesConcededInARow(res []Result) int {
-	return countSequence(res, concededAGoal)
+	return countSequence(res, func(r Result) bool {return r.ConcededAGoal() })
 }
 
 func countSequence(res []Result, f func(Result) bool) int {

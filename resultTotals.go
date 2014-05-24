@@ -17,7 +17,7 @@ func gamesScoredIn(res []Result) int {
 }
 
 func cleanSheets(res []Result) int {
-	return countTotal(res, func(r Result) bool { return !concededAGoal(r) })
+	return countTotal(res, func(r Result) bool { return !r.ConcededAGoal() })
 }
 
 func totalGoalsScored(res []Result) int {
