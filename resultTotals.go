@@ -9,7 +9,7 @@ func gamesLost(res []Result) int {
 }
 
 func gamesDrawn(res []Result) int {
-	return countTotal(res, isDraw)
+	return countTotal(res, func(r Result) bool { return r.IsDraw() })
 }
 
 func gamesScoredIn(res []Result) int {

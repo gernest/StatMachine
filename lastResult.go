@@ -9,7 +9,7 @@ func lastGameLost(res []Result) Result {
 }
 
 func lastGameDrawn(res []Result) Result {
-	return findFirst(res, isDraw)
+	return findFirst(res, func(r Result) bool { return r.IsDraw() })
 }
 
 func findFirst(res []Result, f func(Result) bool) Result {

@@ -50,7 +50,7 @@ func GenerateLeagueTable(league League, seasonId int) LeagueTable {
 				if r.IsWin() {
 					pos.Points = pos.Points + 3
 					pos.Wins = pos.Wins + 1
-				} else if isDraw(r) {
+				} else if r.IsDraw() {
 					pos.Points = pos.Points + 1
 					pos.Draws = pos.Draws + 1
 				} else {

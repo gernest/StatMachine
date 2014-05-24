@@ -8,7 +8,7 @@ func Points(res []Result) int {
 	for _, r := range res {
 		if r.IsWin() {
 			totalPoints = totalPoints + pointsForAWin
-		} else if isDraw(r) {
+		} else if r.IsDraw() {
 			totalPoints = totalPoints + pointsForADraw
 		}
 	}

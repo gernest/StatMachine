@@ -5,7 +5,7 @@ func mostGamesWonInARow(res []Result) int {
 }
 
 func mostGamesWithoutALossInARow(res []Result) int {
-	return longestSequence(res, func(r Result) bool { return r.IsWin() || isDraw(r) })
+	return longestSequence(res, func(r Result) bool { return r.IsWin() || r.IsDraw() })
 }
 
 func mostGamesLostInARow(res []Result) int {
@@ -13,7 +13,7 @@ func mostGamesLostInARow(res []Result) int {
 }
 
 func mostGamesWithoutAWinInARow(res []Result) int {
-	return longestSequence(res, func(r Result) bool { return r.IsLoss() || isDraw(r) })
+	return longestSequence(res, func(r Result) bool { return r.IsLoss() || r.IsDraw() })
 }
 
 func longestSequence(res []Result, f func(Result) bool) int {
