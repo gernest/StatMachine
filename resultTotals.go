@@ -1,11 +1,11 @@
 package statmachine
 
 func gamesWon(res []Result) int {
-	return countTotal(res, isWin)
+	return countTotal(res, func(r Result) bool { return r.IsWin() })
 }
 
 func gamesLost(res []Result) int {
-	return countTotal(res, isLoss)
+	return countTotal(res, func(r Result) bool { return r.IsLoss() })
 }
 
 func gamesDrawn(res []Result) int {
@@ -25,7 +25,7 @@ func totalGoalsScored(res []Result) int {
 }
 
 func totalGoalsConceded(res []Result) int {
-	return sumTotal(res, func(r Result) int {return r.OpponentGoals })
+	return sumTotal(res, func(r Result) int { return r.OpponentGoals })
 }
 
 func sumTotal(res []Result, f func(Result) int) int {

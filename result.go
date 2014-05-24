@@ -23,11 +23,11 @@ func NewResultWithRound(resultId int, resultOpponentId int, resultGoals int, res
 	return Result{resultId, resultOpponentId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame, resultSeasonId, resultDate, resultRound}
 }
 
-func isWin(r Result) bool {
+func (r Result) IsWin() bool {
 	return r.Goals > r.OpponentGoals
 }
 
-func isLoss(r Result) bool {
+func (r Result) IsLoss() bool {
 	return r.Goals < r.OpponentGoals
 }
 

@@ -1,11 +1,11 @@
 package statmachine
 
 func BiggestWins(res []Result) []Result {
-	return findMaximizingResults(res, isWin, func(r Result) int { return r.Goals - r.OpponentGoals })
+	return findMaximizingResults(res, func(r Result) bool { return r.IsWin() }, func(r Result) int { return r.Goals - r.OpponentGoals })
 }
 
 func BiggestLosses(res []Result) []Result {
-	return findMaximizingResults(res, isLoss, func(r Result) int { return r.OpponentGoals - r.Goals })
+	return findMaximizingResults(res, func(r Result) bool {return r.IsLoss() }, func(r Result) int { return r.OpponentGoals - r.Goals })
 }
 
 func HighestScoring(res []Result) []Result {

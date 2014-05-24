@@ -5,10 +5,10 @@ const pointsForAWin = 3
 
 func Points(res []Result) int {
 	totalPoints := 0
-	for _, r := range res{
-		if(isWin(r)){
+	for _, r := range res {
+		if r.IsWin() {
 			totalPoints = totalPoints + pointsForAWin
-		} else if (isDraw(r)) {
+		} else if isDraw(r) {
 			totalPoints = totalPoints + pointsForADraw
 		}
 	}
