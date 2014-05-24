@@ -15,10 +15,6 @@ type Result struct {
 	Round                   int
 }
 
-func NewResultWithRound(resultId int, resultOpponentId int, resultGoals int, resultOpponentGoals int, resultGoalsAtHalfTime int, resultOpponentGoalsAtHalfTime int, resultIsHomeGame bool, resultSeasonId int, resultDate time.Time, resultRound int) Result {
-	return Result{resultId, resultOpponentId, resultGoals, resultOpponentGoals, resultGoalsAtHalfTime, resultOpponentGoalsAtHalfTime, resultIsHomeGame, resultSeasonId, resultDate, resultRound}
-}
-
 func (r Result) IsWin() bool {
 	return r.Goals > r.OpponentGoals
 }

@@ -141,12 +141,12 @@ func TestResultsByOpponent(t *testing.T) {
 
 func TestResultsByRounds(t *testing.T) {
 	allResults := []Result{
-		NewResultWithRound(0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1),
-		NewResultWithRound(1, 1, 2, 0, 1, 2, false, 0, time.Now(), 2),
-		NewResultWithRound(2, 0, 0, 3, 0, 0, true, 0, time.Now(), 3),
-		NewResultWithRound(3, 1, 1, 1, 0, 1, false, 0, time.Now(), 4),
-		NewResultWithRound(4, 0, 3, 1, 0, 1, false, 0, time.Now(), 5),
-		NewResultWithRound(5, 0, 1, 1, 0, 0, true, 0, time.Now(), 6),
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1},
+		Result{1, 1, 2, 0, 1, 2, false, 0, time.Now(), 2},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 3},
+		Result{3, 1, 1, 1, 0, 1, false, 0, time.Now(), 4},
+		Result{4, 0, 3, 1, 0, 1, false, 0, time.Now(), 5},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 6},
 	}
 	results := ResultsByRounds(allResults, []int{1, 2, 3})
 
@@ -157,12 +157,12 @@ func TestResultsByRounds(t *testing.T) {
 
 func TestResultsByRoundsWithOneRound(t *testing.T) {
 	allResults := []Result{
-		NewResultWithRound(0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1),
-		NewResultWithRound(1, 1, 2, 0, 1, 2, false, 0, time.Now(), 2),
-		NewResultWithRound(2, 0, 0, 3, 0, 0, true, 0, time.Now(), 3),
-		NewResultWithRound(3, 1, 1, 1, 0, 1, false, 0, time.Now(), 4),
-		NewResultWithRound(4, 0, 3, 1, 0, 1, false, 0, time.Now(), 5),
-		NewResultWithRound(5, 0, 1, 1, 0, 0, true, 0, time.Now(), 6),
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1},
+		Result{1, 1, 2, 0, 1, 2, false, 0, time.Now(), 2},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 3},
+		Result{3, 1, 1, 1, 0, 1, false, 0, time.Now(), 4},
+		Result{4, 0, 3, 1, 0, 1, false, 0, time.Now(), 5},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 6},
 	}
 	results := ResultsByRounds(allResults, []int{6})
 
