@@ -21,6 +21,16 @@ func FindTeamByName(league League, name string) (*Team, error){
 	return nil, errors.New("Couldnt find a team with the give name")
 }
 
+func FindTeamById(league League, id int) (*Team, error){
+	
+	for _,t := range league.Teams{
+		if(t.Id() == id){
+			return t, nil
+		}
+	}
+	return nil, errors.New("Couldnt find a team with the give id")
+}
+
 func TotalNumberOfResults(league League) int{
 	numResults:=0
 	for _,t := range league.Teams{
