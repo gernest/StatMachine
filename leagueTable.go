@@ -27,17 +27,16 @@ func (table *LeagueTable) findByTeamName(name string) *LeaguePosition {
 }
 
 func GenerateLeagueTable(league League, seasonId int) LeagueTable {
+	return GenerateLeagueTableWithFilter(league, seasonId, func(r Result) bool {return true})
+}
+
+func GenerateLeagueTableWithFilter(league League, seasonId int, f func(Result) bool) LeagueTable {
 
 	table := LeagueTable{Positions: []*LeaguePosition{}}
 
-	// sort.Sort(ByName(league.Teams))
-	// for i, t := range league.Teams {
-	// 	table.Positions = append(table.Positions, LeaguePosition{Place: uint8(i+1), Points: 0, Wins: 0, Draws: 0, Losses: 0, TeamName: t.Name})
-	// }
-
 	for _, t := range league.Teams {
 		for _, r := range t.Results {
-			if seasonId == r.SeasonId {
+			if seasonId == r.SeasonId && f(r){
 				pos := table.findByTeamName(t.Name)
 				if nil == pos {
 					pos = new(LeaguePosition)
