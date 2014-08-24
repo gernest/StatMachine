@@ -58,3 +58,34 @@ func (r Result) ConcededInFirstHalf() bool {
 func (r Result) ConcededInSecondHalf() bool {
 	return r.OpponentGoalsAtHalfTime < r.OpponentGoals
 }
+
+func (r Result) Points() uint8 {
+	if r.IsWin() {
+		return 3
+	}else if r.IsDraw() {
+		return 1
+	}else {
+		return 0
+	}
+}
+
+func (r Result) FirstHalfPoints() uint8 {
+	if r.GoalsAtHalfTime > r.OpponentGoalsAtHalfTime {
+		return 3
+	}else if r.GoalsAtHalfTime == r.OpponentGoalsAtHalfTime {
+		return 1
+	}else {
+		return 0
+	}
+}
+
+func (r Result) SecondHalfPoints() uint8 {
+	if (r.Goals - r.GoalsAtHalfTime) > (r.OpponentGoals - r.OpponentGoalsAtHalfTime) {
+		return 3
+	}else if (r.Goals - r.GoalsAtHalfTime) < (r.OpponentGoals - r.OpponentGoalsAtHalfTime) {
+		return 1
+	}else {
+		return 0
+	}
+}
+

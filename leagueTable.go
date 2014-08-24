@@ -46,11 +46,10 @@ func GenerateLeagueTableWithFilter(league League, seasonId int, f func(Result) b
 				}
 				pos.GoalsFor = pos.GoalsFor + uint8(r.Goals)
 				pos.GoalsAgainst = pos.GoalsAgainst + uint8(r.OpponentGoals)
+				pos.Points = r.Points()
 				if r.IsWin() {
-					pos.Points = pos.Points + 3
 					pos.Wins = pos.Wins + 1
 				} else if r.IsDraw() {
-					pos.Points = pos.Points + 1
 					pos.Draws = pos.Draws + 1
 				} else {
 					pos.Losses = pos.Losses + 1
