@@ -13,6 +13,14 @@ type Result struct {
 	SeasonId                int
 	Date                    time.Time
 	Round                   int
+	Cards                   CardInfo
+}
+
+type CardInfo struct {
+	HomeTeamNumberOfYellowCards uint8
+	HomeTeamNumberOfRedCards    uint8
+	AwayTeamNumberOfYellowCards uint8
+	AwayTeamNumberOfRedCards    uint8
 }
 
 func (r Result) IsWin() bool {
