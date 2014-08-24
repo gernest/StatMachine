@@ -82,7 +82,7 @@ func (r Result) FirstHalfPoints() uint8 {
 func (r Result) SecondHalfPoints() uint8 {
 	if (r.Goals - r.GoalsAtHalfTime) > (r.OpponentGoals - r.OpponentGoalsAtHalfTime) {
 		return 3
-	}else if (r.Goals - r.GoalsAtHalfTime) < (r.OpponentGoals - r.OpponentGoalsAtHalfTime) {
+	}else if (r.Goals - r.GoalsAtHalfTime) == (r.OpponentGoals - r.OpponentGoalsAtHalfTime) {
 		return 1
 	}else {
 		return 0
