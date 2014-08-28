@@ -27,7 +27,53 @@ func (table *LeagueTable) findByTeamName(name string) *LeaguePosition {
 }
 
 func GenerateLeagueTable(league League, seasonId int) LeagueTable {
-	return GenerateLeagueTableWithFilter(league, seasonId, func(r Result) bool {return true})
+	return GenerateLeagueTableWithFilter(league, seasonId, func(r Result) bool { return true })
+}
+
+func GenerateLeagueTableAgainstTopHalf(league League, seasonId int) LeagueTable {
+	leagueTable := GenerateLeagueTableWithFilter(league, seasonId, func(r Result) bool { return true })
+	topHalfTeamNames := []string{}
+	for _, p := range leagueTable.Positions {
+		if p.Place <= 10 {
+			topHalfTeamNames = append(topHalfTeamNames, p.TeamName)
+		}
+	}
+	return GenerateLeagueTableWithFilter(league, seasonId,
+		func(r Result) bool {
+			for _, name := range topHalfTeamNames {
+				t, err := FindTeamByName(league, name)
+				if nil != err {
+					panic(err)
+				}
+				if t.Id() == r.OpponentId {
+					return true
+				}
+			}
+			return false
+		})
+}
+
+func GenerateLeagueTableAgainstBottomHalf(league League, seasonId int) LeagueTable {
+	leagueTable := GenerateLeagueTableWithFilter(league, seasonId, func(r Result) bool { return true })
+	bottomHalfTeamNames := []string{}
+	for _, p := range leagueTable.Positions {
+		if p.Place > 10 {
+			bottomHalfTeamNames = append(bottomHalfTeamNames, p.TeamName)
+		}
+	}
+	return GenerateLeagueTableWithFilter(league, seasonId,
+		func(r Result) bool {
+			for _, name := range bottomHalfTeamNames {
+				t, err := FindTeamByName(league, name)
+				if nil != err {
+					panic(err)
+				}
+				if t.Id() == r.OpponentId {
+					return true
+				}
+			}
+			return false
+		})
 }
 
 func GenerateLeagueTableWithFilter(league League, seasonId int, f func(Result) bool) LeagueTable {
@@ -36,7 +82,7 @@ func GenerateLeagueTableWithFilter(league League, seasonId int, f func(Result) b
 
 	for _, t := range league.Teams {
 		for _, r := range t.Results {
-			if seasonId == r.SeasonId && f(r){
+			if seasonId == r.SeasonId && f(r) {
 				pos := table.findByTeamName(t.Name)
 				if nil == pos {
 					pos = new(LeaguePosition)
