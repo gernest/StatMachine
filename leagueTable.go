@@ -112,6 +112,28 @@ func GenerateLeagueTableWithFilter(league League, seasonId int, f func(Result) b
 	return table
 }
 
+func FindLeaguePositionsByRound(league League, seasonId int) map[string]map[string]uint8 {
+	leaguePositions := map[string]map[string]uint8{}
+	maxRound := 1
+	for _, t := range league.Teams {
+		leaguePositions[t.Name] = map[string]uint8{}
+		for _, r := range t.Results {
+			if r.Round > maxRound {
+				maxRound = r.Round
+			}
+		}
+	}
+
+	for i := 1; i <= maxRound; i++ {
+		leagueTable := GenerateLeagueTableWithFilter(league, seasonId, func(r Result) bool { return r.Round <= i })
+		for _, p := range leagueTable.Positions {
+			team := leaguePositions[p.TeamName]
+			team[string(i)] = p.Place
+		}
+	}
+	return leaguePositions
+}
+
 type ByPointsThenGoalDifference []*LeaguePosition
 
 func (p ByPointsThenGoalDifference) Len() int {

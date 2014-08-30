@@ -7,12 +7,12 @@ import (
 
 func TestGamesWon(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := gamesWon(allResults)
@@ -24,12 +24,12 @@ func TestGamesWon(t *testing.T) {
 
 func TestGamesLost(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := gamesLost(allResults)
@@ -41,13 +41,13 @@ func TestGamesLost(t *testing.T) {
 
 func TestGamesDrawn(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 2, 2, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 3, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 0, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 2, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 3, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := gamesDrawn(allResults)
@@ -59,13 +59,13 @@ func TestGamesDrawn(t *testing.T) {
 
 func TestGamesScoredIn(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 0, 2, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 3, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 0, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 3, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := gamesScoredIn(allResults)
@@ -77,13 +77,13 @@ func TestGamesScoredIn(t *testing.T) {
 
 func TestCleanSheets(t *testing.T) {
 	allResults := []Result{
-		Result{0, 1, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 0, 2, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 3, 0, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 1, 0, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 3, 0, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 1, 0, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 0, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 1, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 3, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 1, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 3, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 1, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := cleanSheets(allResults)
@@ -95,13 +95,13 @@ func TestCleanSheets(t *testing.T) {
 
 func TestTotalGoalsScored(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 0, 2, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 3, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 3, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := totalGoalsScored(allResults)
@@ -113,13 +113,13 @@ func TestTotalGoalsScored(t *testing.T) {
 
 func TestTotalGoalsConceded(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 0, 2, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 3, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 3, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := totalGoalsConceded(allResults)

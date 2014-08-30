@@ -7,12 +7,12 @@ import (
 
 func TestWriteResults(t *testing.T){
 	allResults  := []Result{
-		Result{0,0,1,0,0,0,true,0, time.Now(),1},
-		Result{1,0,2,0,0,0,false,0, time.Now(),1},
-		Result{2,0,0,3,0,0,true,0, time.Now(),1},
-		Result{3,0,1,1,0,0,false,0, time.Now(),1},
-		Result{4,0,3,1,0,0,false,0, time.Now(),1},
-		Result{5,0,1,1,0,0,true,0, time.Now(),1},
+		Result{0,0,1,0,0,0,true,0, time.Now(),1, CardInfo{}},
+		Result{1,0,2,0,0,0,false,0, time.Now(),1, CardInfo{}},
+		Result{2,0,0,3,0,0,true,0, time.Now(),1, CardInfo{}},
+		Result{3,0,1,1,0,0,false,0, time.Now(),1, CardInfo{}},
+		Result{4,0,3,1,0,0,false,0, time.Now(),1, CardInfo{}},
+		Result{5,0,1,1,0,0,true,0, time.Now(),1, CardInfo{}},
 	}
 	
 	desc := ResultInfoString(allResults)
@@ -23,12 +23,12 @@ func TestWriteResults(t *testing.T){
 
 func TestWriteSequenceString(t *testing.T){
 	allResults  := []Result{
-		Result{0,0,1,0,0,0,true,0, time.Now(),1},
-		Result{1,0,2,0,0,0,false,0, time.Now(),1},
-		Result{2,0,0,3,0,0,true,0, time.Now(),1},
-		Result{3,0,1,1,0,0,false,0, time.Now(),1},
-		Result{4,0,3,1,0,0,false,0, time.Now(),1},
-		Result{5,0,1,1,0,0,true,0, time.Now(),1},
+		Result{0,0,1,0,0,0,true,0, time.Now(),1, CardInfo{}},
+		Result{1,0,2,0,0,0,false,0, time.Now(),1, CardInfo{}},
+		Result{2,0,0,3,0,0,true,0, time.Now(),1, CardInfo{}},
+		Result{3,0,1,1,0,0,false,0, time.Now(),1, CardInfo{}},
+		Result{4,0,3,1,0,0,false,0, time.Now(),1, CardInfo{}},
+		Result{5,0,1,1,0,0,true,0, time.Now(),1, CardInfo{}},
 	}
 	
 	desc := ResultSequenceString(allResults)

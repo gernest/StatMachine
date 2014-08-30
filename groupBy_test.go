@@ -8,13 +8,13 @@ import (
 
 func TestGroupBySeasonId(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 2013, time.Now(),1},
-		Result{1, 0, 2, 0, 0, 0, false, 2013, time.Now(),2},
-		Result{2, 0, 0, 3, 0, 0, true, 2014, time.Now(),3},
-		Result{3, 0, 1, 1, 0, 0, false, 2014, time.Now(),4},
-		Result{4, 0, 3, 1, 0, 0, false, 2012, time.Now(),5},
-		Result{5, 0, 1, 1, 0, 0, true, 2011, time.Now(),6},
-		Result{6, 0, 1, 1, 0, 0, true, 2014, time.Now(),7},
+		Result{0, 0, 1, 0, 0, 0, true, 2013, time.Now(),1, CardInfo{}},
+		Result{1, 0, 2, 0, 0, 0, false, 2013, time.Now(),2, CardInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 2014, time.Now(),3, CardInfo{}},
+		Result{3, 0, 1, 1, 0, 0, false, 2014, time.Now(),4, CardInfo{}},
+		Result{4, 0, 3, 1, 0, 0, false, 2012, time.Now(),5, CardInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 2011, time.Now(),6, CardInfo{}},
+		Result{6, 0, 1, 1, 0, 0, true, 2014, time.Now(),7, CardInfo{}},
 	}
 
 	groupedResults := GroupBy(allResults, func(r Result) string { return strconv.Itoa(r.SeasonId) })

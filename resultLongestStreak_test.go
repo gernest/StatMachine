@@ -7,13 +7,13 @@ import (
 
 func TestMostGamesWonInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := mostGamesWonInARow(allResults)
@@ -25,13 +25,13 @@ func TestMostGamesWonInARow(t *testing.T) {
 
 func TestMostGamesWonInARowWhenThereAreNone(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 0, 2, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := mostGamesWonInARow(allResults)
@@ -43,15 +43,15 @@ func TestMostGamesWonInARowWhenThereAreNone(t *testing.T) {
 
 func TestMostGamesWithoutALossInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{7, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{8, 0, 0, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{7, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{8, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := mostGamesWithoutALossInARow(allResults)
@@ -63,13 +63,13 @@ func TestMostGamesWithoutALossInARow(t *testing.T) {
 
 func TestMostGamesWithoutALossInARowWhenThereAreNone(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 0, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 0, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 2, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 2, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 1, 2, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 2, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 1, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := mostGamesWithoutALossInARow(allResults)
@@ -81,13 +81,13 @@ func TestMostGamesWithoutALossInARowWhenThereAreNone(t *testing.T) {
 
 func TestMostGamesLostInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 3, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 3, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := mostGamesLostInARow(allResults)
@@ -99,13 +99,13 @@ func TestMostGamesLostInARow(t *testing.T) {
 
 func TestMostGamesLostInARowWhenThereAreNone(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 2, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := mostGamesLostInARow(allResults)
@@ -117,15 +117,15 @@ func TestMostGamesLostInARowWhenThereAreNone(t *testing.T) {
 
 func TestMostGamesWithoutAWinInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{7, 0, 0, 0, 0, 0, true, 0, time.Now(), 1},
-		Result{8, 0, 1, 0, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{7, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{8, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := mostGamesWithoutAWinInARow(allResults)
@@ -137,13 +137,13 @@ func TestMostGamesWithoutAWinInARow(t *testing.T) {
 
 func TestMostGamesWithoutAWinInARowWhenThereAreNone(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 2, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{1, 0, 2, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{2, 0, 2, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{3, 0, 2, 1, 0, 0, true, 0, time.Now(), 1},
-		Result{4, 0, 4, 3, 0, 0, true, 0, time.Now(), 1},
-		Result{5, 0, 4, 2, 0, 0, true, 0, time.Now(), 1},
-		Result{6, 0, 4, 2, 0, 0, true, 0, time.Now(), 1},
+		Result{0, 0, 2, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 2, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{2, 0, 2, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{3, 0, 2, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{4, 0, 4, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{5, 0, 4, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{6, 0, 4, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
 	}
 
 	count := mostGamesWithoutAWinInARow(allResults)
