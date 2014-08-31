@@ -1,6 +1,7 @@
 package statmachine
 
-import "sort"
+import ("sort"
+		"strconv")
 
 type LeagueTable struct {
 	Positions []*LeaguePosition
@@ -79,17 +80,17 @@ func GenerateLeagueTableAgainstBottomHalf(league League, seasonId int) LeagueTab
 func GenerateLeagueTableWithFilter(league League, seasonId int, f func(Result) bool) LeagueTable {
 
 	table := LeagueTable{Positions: []*LeaguePosition{}}
-
+	sort.Sort(ByName(league.Teams))
 	for _, t := range league.Teams {
+		pos := table.findByTeamName(t.Name)
+		if nil == pos {
+			pos = new(LeaguePosition)
+			pos.Place = uint8(len(table.Positions) + 1)
+			pos.TeamName = t.Name
+			table.Positions = append(table.Positions, pos)
+		}
 		for _, r := range t.Results {
 			if seasonId == r.SeasonId && f(r) {
-				pos := table.findByTeamName(t.Name)
-				if nil == pos {
-					pos = new(LeaguePosition)
-					pos.Place = uint8(len(table.Positions) + 1)
-					pos.TeamName = t.Name
-					table.Positions = append(table.Positions, pos)
-				}
 				pos.GoalsFor = pos.GoalsFor + uint8(r.Goals)
 				pos.GoalsAgainst = pos.GoalsAgainst + uint8(r.OpponentGoals)
 				pos.Points = pos.Points + r.Points()
@@ -127,8 +128,7 @@ func FindLeaguePositionsByRound(league League, seasonId int) map[string]map[stri
 	for i := 1; i <= maxRound; i++ {
 		leagueTable := GenerateLeagueTableWithFilter(league, seasonId, func(r Result) bool { return r.Round <= i })
 		for _, p := range leagueTable.Positions {
-			team := leaguePositions[p.TeamName]
-			team[string(i)] = p.Place
+			leaguePositions[p.TeamName][strconv.Itoa(i)] = p.Place
 		}
 	}
 	return leaguePositions
