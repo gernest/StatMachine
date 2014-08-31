@@ -13,9 +13,12 @@ func TestCreatingLeagueTableWhenNoResults(t *testing.T) {
 
 	leagueTable := GenerateLeagueTable(league, 2014)
 
-	if 0 != len(leagueTable.Positions) {
-		t.Errorf("didnt get 0 league positions as expected, got %v", len(leagueTable.Positions))
+	if 3 != len(leagueTable.Positions) {
+		t.Errorf("didnt get 3 league positions as expected, got %v", len(leagueTable.Positions))
 	}
+	verifyLeaguePosition(t, leagueTable.Positions[0], 1, 0, 0, 0, 0, 0, 0, "Arsenal")
+	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 0, 0, 0, 0, 0, 0, "Chelsea")
+	verifyLeaguePosition(t, leagueTable.Positions[2], 3, 0, 0, 0, 0, 0, 0, "Liverpool")
 }
 
 func TestCreatingLeagueTableWhenEachResultIsOnlyRecoredOnce(t *testing.T) {
@@ -30,11 +33,13 @@ func TestCreatingLeagueTableWhenEachResultIsOnlyRecoredOnce(t *testing.T) {
 	league.Teams = append(league.Teams, NewTeam(3, "Arsenal"))
 
 	leagueTable := GenerateLeagueTable(league, 2014)
-	//printLeagueTable(leagueTable)
-	if 1 != len(leagueTable.Positions) {
-		t.Errorf("didnt get 1 league positions as expected, got %v", len(leagueTable.Positions))
+
+	if 3 != len(leagueTable.Positions) {
+		t.Errorf("didnt get 3 league positions as expected, got %v", len(leagueTable.Positions))
 	}
 	verifyLeaguePosition(t, leagueTable.Positions[0], 1, 3, 1, 0, 0, 4, 0, "Liverpool")
+	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 0, 0, 0, 0, 0, 0, "Arsenal")
+	verifyLeaguePosition(t, leagueTable.Positions[2], 3, 0, 0, 0, 0, 0, 0, "Chelsea")
 }
 
 func TestCreatingLeagueTableWhenAllResultsAreDuplicate(t *testing.T) {
@@ -149,11 +154,12 @@ func TestCreatingLeagueTableWhenNotAllResultsAreFromSameSeasonOnlyReturnsTeamsFr
 
 	leagueTable := GenerateLeagueTable(league, 2013)
 	//printLeagueTable(leagueTable)
-	if 2 != len(leagueTable.Positions) {
-		t.Errorf("Didnt get expected number of positions %v, got %v", 2, len(leagueTable.Positions))
+	if 3 != len(leagueTable.Positions) {
+		t.Errorf("Didnt get expected number of positions %v, got %v", 3, len(leagueTable.Positions))
 	}
 	verifyLeaguePosition(t, leagueTable.Positions[0], 1, 3, 1, 0, 0, 7, 1, "Liverpool")
 	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 0, 0, 0, 1, 1, 7, "Arsenal")
+	verifyLeaguePosition(t, leagueTable.Positions[2], 3, 0, 0, 0, 0, 0, 0, "Chelsea")
 }
 
 func verifyLeaguePosition(t *testing.T, pos *LeaguePosition, expectedPlace uint8, expectedPoints uint8, expectedWins uint8, expectedDraws uint8, expectedLosses uint8, expectedGoalsFor uint8, expectedGoalsAgainst uint8, expectedTeamName string) {
@@ -206,15 +212,16 @@ func TestLeagueTableIsSortedByPointsThenGoalDifference(t *testing.T) {
 	league.Teams = append(league.Teams, NewTeam(3, "Arsenal"))
 
 	leagueTable := GenerateLeagueTable(league, 2014)
-	//printLeagueTable(leagueTable)
-	if 2 != len(leagueTable.Positions) {
-		t.Errorf("didnt get 2 league positions as expected, got %v", len(leagueTable.Positions))
+
+	if 3 != len(leagueTable.Positions) {
+		t.Errorf("didnt get 3 league positions as expected, got %v", len(leagueTable.Positions))
 	}
 	verifyLeaguePosition(t, leagueTable.Positions[0], 1, 3, 1, 0, 0, 5, 0, "Chelsea")
 	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 3, 1, 0, 0, 4, 0, "Liverpool")
+	verifyLeaguePosition(t, leagueTable.Positions[2], 3, 0, 0, 0, 0, 0, 0, "Arsenal")
 }
 
-func TestLeaguePositionByRound(t *testing.T) {
+func TestLeaguePositionByRoundAfterOneGame(t *testing.T) {
 
 	league := NewLeague("Test League")
 	teamLiverpool := NewTeam(1, "Liverpool")
@@ -222,7 +229,7 @@ func TestLeaguePositionByRound(t *testing.T) {
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
 
 	teamChelsea := NewTeam(2, "Chelsea")
-	result = Result{2, 3, 5, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{2, 3, 1, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	league.Teams = append(league.Teams, teamLiverpool)
@@ -230,12 +237,88 @@ func TestLeaguePositionByRound(t *testing.T) {
 	league.Teams = append(league.Teams, NewTeam(3, "Arsenal"))
 
 	leaguePositions := FindLeaguePositionsByRound(league, 2014)
+
 	//printLeagueTable(leagueTable)
-	// if 2 != len(leaguePositions) {
-	// 	t.Errorf("didnt get 2 league positions as expected, got %v", len(leagueTable.Positions))
-	// }
-	// verifyLeaguePosition(t, leagueTable.Positions[0], 1, 3, 1, 0, 0, 5, 0, "Chelsea")
-	// verifyLeaguePosition(t, leagueTable.Positions[1], 2, 3, 1, 0, 0, 4, 0, "Liverpool")
+	if 3 != len(leaguePositions) {
+	 	t.Errorf("didnt get 3 league positions as expected, got %v", len(leaguePositions))
+	}
+	if(leaguePositions["Liverpool"]["1"] != 1){
+		t.Errorf("expected Livepool to be in place 1 after 1 round, got place %v", leaguePositions["Liverpool"]["1"])
+	}
+	if(leaguePositions["Chelsea"]["1"] != 2){
+		t.Errorf("expected Chelsea to be in place 2 after 1 round, got place %v", leaguePositions["Chelsea"]["1"])
+	}
+	if(leaguePositions["Arsenal"]["1"] != 3){
+		t.Errorf("expected Arsenal to be in place 3 after 1 round, got place %v", leaguePositions["Arsenal"]["1"])
+	}
+}
+
+func TestLeaguePositionByRoundAfterTwoRounds(t *testing.T) {
+
+	league := NewLeague("Test League")
+	teamLiverpool := NewTeam(1, "Liverpool")
+	teamChelsea := NewTeam(2, "Chelsea")
+	teamArsenal := NewTeam(3, "Arsenal")
+	teamSouthampton := NewTeam(4, "Southampton")
+	
+	result := Result{1, 2, 2, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	teamLiverpool.Results = append(teamLiverpool.Results, result)
+	result = Result{2, 1, 0,2, 0, 2, false, 2014, time.Now(), 1, CardInfo{}}
+	teamChelsea.Results = append(teamChelsea.Results, result)
+
+
+	result = Result{3, 4, 4, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	teamArsenal.Results = append(teamArsenal.Results, result)
+	result = Result{4, 3, 1, 4, 1, 0, false, 2014, time.Now(), 1, CardInfo{}}
+	teamSouthampton.Results = append(teamSouthampton.Results, result)
+
+	result = Result{1, 3, 3, 0, 1, 0, false, 2014, time.Now(), 2, CardInfo{}}
+	teamLiverpool.Results = append(teamLiverpool.Results, result)
+	result = Result{3, 1, 0,3, 0, 1, true, 2014, time.Now(), 2, CardInfo{}}
+	teamArsenal.Results = append(teamArsenal.Results, result)
+
+	result = Result{2, 4, 0, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}}
+	teamChelsea.Results = append(teamChelsea.Results, result)
+	result = Result{4, 2, 1, 0, 0, 0, true, 2014, time.Now(), 2, CardInfo{}}
+	teamSouthampton.Results = append(teamSouthampton.Results, result)
+
+
+	league.Teams = append(league.Teams, teamLiverpool)
+	league.Teams = append(league.Teams, teamChelsea)
+	league.Teams = append(league.Teams, teamArsenal)
+	league.Teams = append(league.Teams, teamSouthampton)
+	leagueTable := GenerateLeagueTable(league, 2014)
+	printLeagueTable(leagueTable)
+	leaguePositions := FindLeaguePositionsByRound(league, 2014)
+
+	if 4 != len(leaguePositions) {
+	 	t.Errorf("didnt get 4 league positions as expected, got %v", len(leaguePositions))
+	}
+	if(leaguePositions["Arsenal"]["1"] != 1){
+		t.Errorf("expected Arsenal to be in place 1 after 1 round, got place %v", leaguePositions["Arsenal"]["1"])
+	}
+	if(leaguePositions["Liverpool"]["1"] != 2){
+		t.Errorf("expected Livepool to be in place 2 after 1 round, got place %v", leaguePositions["Liverpool"]["1"])
+	}
+	if(leaguePositions["Chelsea"]["1"] != 3){
+		t.Errorf("expected Chelsea to be in place 3 after 1 round, got place %v", leaguePositions["Chelsea"]["1"])
+	}
+	if(leaguePositions["Southampton"]["1"] != 4){
+		t.Errorf("expected Southampton to be in place 4 after 1 round, got place %v", leaguePositions["Southampton"]["1"])
+	}
+
+	if(leaguePositions["Liverpool"]["2"] != 1){
+		t.Errorf("expected Livepool to be in place 1 after 2 round, got place %v", leaguePositions["Liverpool"]["2"])
+	}
+	if(leaguePositions["Arsenal"]["2"] != 2){
+		t.Errorf("expected Arsenal to be in place 2 after 2 round, got place %v", leaguePositions["Arsenal"]["2"])
+	}
+	if(leaguePositions["Southampton"]["2"] != 3){
+		t.Errorf("expected Southampton to be in place 3 after 2 round, got place %v", leaguePositions["Southampton"]["2"])
+	}
+	if(leaguePositions["Chelsea"]["2"] != 4){
+		t.Errorf("expected Chelsea to be in place 4 after 2 round, got place %v", leaguePositions["Chelsea"]["2"])
+	}
 }
 
 func printLeagueTable(table LeagueTable) {
