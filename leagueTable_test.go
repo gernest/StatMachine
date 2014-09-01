@@ -158,8 +158,8 @@ func TestCreatingLeagueTableWhenNotAllResultsAreFromSameSeasonOnlyReturnsTeamsFr
 		t.Errorf("Didnt get expected number of positions %v, got %v", 3, len(leagueTable.Positions))
 	}
 	verifyLeaguePosition(t, leagueTable.Positions[0], 1, 3, 1, 0, 0, 7, 1, "Liverpool")
-	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 0, 0, 0, 1, 1, 7, "Arsenal")
-	verifyLeaguePosition(t, leagueTable.Positions[2], 3, 0, 0, 0, 0, 0, 0, "Chelsea")
+	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 0, 0, 0, 0, 0, 0, "Chelsea")
+	verifyLeaguePosition(t, leagueTable.Positions[2], 3, 0, 0, 0, 1, 1, 7, "Arsenal")
 }
 
 func verifyLeaguePosition(t *testing.T, pos *LeaguePosition, expectedPlace uint8, expectedPoints uint8, expectedWins uint8, expectedDraws uint8, expectedLosses uint8, expectedGoalsFor uint8, expectedGoalsAgainst uint8, expectedTeamName string) {
@@ -212,7 +212,7 @@ func TestLeagueTableIsSortedByPointsThenGoalDifference(t *testing.T) {
 	league.Teams = append(league.Teams, NewTeam(3, "Arsenal"))
 
 	leagueTable := GenerateLeagueTable(league, 2014)
-
+	//printLeagueTable(leagueTable)
 	if 3 != len(leagueTable.Positions) {
 		t.Errorf("didnt get 3 league positions as expected, got %v", len(leagueTable.Positions))
 	}
@@ -221,6 +221,55 @@ func TestLeagueTableIsSortedByPointsThenGoalDifference(t *testing.T) {
 	verifyLeaguePosition(t, leagueTable.Positions[2], 3, 0, 0, 0, 0, 0, 0, "Arsenal")
 }
 
+func TestLeagueTableIsSortedByGoalsScoredWhenGoalDifferenceIsEqual(t *testing.T) {
+
+	league := NewLeague("Test League")
+	teamLiverpool := NewTeam(1, "Liverpool")
+	result := Result{1, 3, 5, 1, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	teamLiverpool.Results = append(teamLiverpool.Results, result)
+
+	teamChelsea := NewTeam(2, "Chelsea")
+	result = Result{2, 3, 4, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	teamChelsea.Results = append(teamChelsea.Results, result)
+
+	league.Teams = append(league.Teams, teamLiverpool)
+	league.Teams = append(league.Teams, teamChelsea)
+	league.Teams = append(league.Teams, NewTeam(3, "Arsenal"))
+
+	leagueTable := GenerateLeagueTable(league, 2014)
+	//printLeagueTable(leagueTable)
+	if 3 != len(leagueTable.Positions) {
+		t.Errorf("didnt get 3 league positions as expected, got %v", len(leagueTable.Positions))
+	}
+	verifyLeaguePosition(t, leagueTable.Positions[0], 1, 3, 1, 0, 0, 5, 1, "Liverpool")
+	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 3, 1, 0, 0, 4, 0, "Chelsea")
+	verifyLeaguePosition(t, leagueTable.Positions[2], 3, 0, 0, 0, 0, 0, 0, "Arsenal")
+}
+
+func TestTwoTeamLeagueWhenTheyAreOnlySeperatedByGoalDifference(t *testing.T) {
+
+	league := NewLeague("Test League")
+	teamArsenal := NewTeam(1, "Arsenal")
+	teamSouthampton := NewTeam(1, "Southampton")
+
+	result := Result{3, 4, 4, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	teamArsenal.Results = append(teamArsenal.Results, result)
+	result = Result{3, 4, 0, 4, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	teamArsenal.Results = append(teamArsenal.Results, result)
+	
+	result = Result{4, 3, 0, 3, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	teamSouthampton.Results = append(teamSouthampton.Results, result)
+	result = Result{4, 3, 2, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	teamSouthampton.Results = append(teamSouthampton.Results, result)
+
+	league.Teams = append(league.Teams, teamArsenal)
+	league.Teams = append(league.Teams, teamSouthampton)
+	leagueTable := GenerateLeagueTable(league, 2014)
+	//printLeagueTable(leagueTable)
+	verifyLeaguePosition(t, leagueTable.Positions[0], 1, 3, 1, 0, 1, 4, 4, "Arsenal")
+	verifyLeaguePosition(t, leagueTable.Positions[1], 2, 3, 1, 0, 1, 2, 4, "Southampton")
+
+}
 func TestLeaguePositionByRoundAfterOneGame(t *testing.T) {
 
 	league := NewLeague("Test League")
@@ -287,8 +336,8 @@ func TestLeaguePositionByRoundAfterTwoRounds(t *testing.T) {
 	league.Teams = append(league.Teams, teamChelsea)
 	league.Teams = append(league.Teams, teamArsenal)
 	league.Teams = append(league.Teams, teamSouthampton)
-	leagueTable := GenerateLeagueTable(league, 2014)
-	printLeagueTable(leagueTable)
+	//leagueTable := GenerateLeagueTable(league, 2014)
+	//printLeagueTable(leagueTable)
 	leaguePositions := FindLeaguePositionsByRound(league, 2014)
 
 	if 4 != len(leaguePositions) {
@@ -322,7 +371,7 @@ func TestLeaguePositionByRoundAfterTwoRounds(t *testing.T) {
 }
 
 func printLeagueTable(table LeagueTable) {
-	fmt.Println("Points - Place, w-d-l Team")
+	fmt.Println("Team Points - Place, w-d-l Goals")
 	for _, p := range table.Positions {
 		fmt.Printf("%v %v - %v, %v-%v-%v %v-%v", p.TeamName, p.Points, p.Place, p.Wins, p.Draws, p.Losses, p.GoalsFor, p.GoalsAgainst)
 		fmt.Println()
