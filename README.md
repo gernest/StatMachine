@@ -1,10 +1,11 @@
 StatMachine
 ===========
 
-Go library for analyzing football results.
+Go library for analyzing football results. This library is used to generate everything from simple stats (league tables) to
+more complex stats (#number of first halfs scored in in a row). 
 
 # Required Data #
-The library requires the following data for each result:
+The library requires that results are provided as a input from a 3d party library and the following data for each result:
 - Goals scored.
 - Goals scored at half time.
 - Opponents goals scored.
@@ -14,7 +15,51 @@ The library requires the following data for each result:
 - date
 - round
 
-# Supported Stats #
+# League Tables #
+When you have a collection of results you can easily generate a league tables.
+
+```go
+league := statmachine.NewLeague("English PL")
+league = getResults(league)//get results from an external provider
+table := statmachine.GenerateLeagueTable(league, 2014)
+```
+It is also easy to generate league tables for results against teams in the top half of the league
+and bottom half of the league.
+
+```go
+league := statmachine.NewLeague("English PL")
+league = getResults(league)//get results from an external provider
+againstTopHalfTable := statmachine.GenerateLeagueTableAgainstTopHalf(league, 2014)
+againstBottomHalfTable := statmachine.GenerateLeagueTableBottomTopHalf(league, 2014)
+```
+
+All these methods return a LeagueTable struct that is a collection of league positions which each has the following properties:
+- Place
+- Team name
+- Points
+- Wins
+- Draws
+- Losses
+- Goals for
+- Goals against
+
+# Example of usage #
+Lets say that you have all the results for a given season.
+
+```go
+league := statmachine.NewLeague("English PL")
+league = getResultsForCurrentSeason(league)//get results from an external provider
+```
+
+Now lets say that you want to find the most games won in a row for each of the teams in the league:
+
+```go
+for _,team := range league.Teams {
+  gamesWonInARow[team.Name] = statmachine.gamesWonInARow(team.Results)
+}
+```
+
+# Other Supported Stats #
 
 The following stats can be calculated:
 
@@ -52,25 +97,6 @@ certain team at home with the following snippet:
 atHome := statmachine.HomeResults(results)
 atHomeVsTeamA := statmachine.ResultsByOpponent(atHome, opponentId)
 ```
-
-# League Tables #
-The library supports creating league tables on a given set of results. 
-
-```go
-league := statmachine.NewLeague("English PL")
-//... Add results to league
-table := statmachine.GenerateLeagueTable(league, 2014)
-```
-
-A league table is a collection of league positions which each has the following properties:
-- Place
-- Team name
-- Points
-- Wins
-- Draws
-- Losses
-- Goals for
-- Goals against
 
 # Grouping Results #
 Its possible to group a set of results using the GroupBy method:
