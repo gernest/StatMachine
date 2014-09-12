@@ -12,7 +12,7 @@ func NewLeague(name string) League{
 }
 
 func FindTeamByName(league League, name string) (*Team, error){
-	
+
 	for _,t := range league.Teams{
 		if(t.Name == name){
 			return t, nil
@@ -22,7 +22,7 @@ func FindTeamByName(league League, name string) (*Team, error){
 }
 
 func FindTeamById(league League, id int) (*Team, error){
-	
+
 	for _,t := range league.Teams{
 		if(t.Id() == id){
 			return t, nil
@@ -45,4 +45,14 @@ func AllResults(league League) []Result{
 		res = append(res, t.Results...)
 	}
 	return res
+}
+
+func AllGoals(league League) []GoalInfo{
+	goals := []GoalInfo{}
+	for _,r := range AllResults(league) {
+		for _,g := range r.GoalsInfo {
+			goals = append(goals, g)
+		}
+	}
+	return goals
 }
