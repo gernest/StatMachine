@@ -14,6 +14,12 @@ type Result struct {
 	Date                    time.Time
 	Round                   int
 	Cards                   CardInfo
+	GoalsInfo               []GoalInfo
+}
+
+type GoalInfo struct {
+	Minute         uint8
+	TeamId         int
 }
 
 type CardInfo struct {
@@ -88,4 +94,3 @@ func (r Result) SecondHalfPoints() uint8 {
 		return 0
 	}
 }
-
