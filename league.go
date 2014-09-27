@@ -50,8 +50,10 @@ func AllResults(league League) []Result{
 func AllGoals(league League) []GoalInfo{
 	goals := []GoalInfo{}
 	for _,r := range AllResults(league) {
-		for _,g := range r.GoalsInfo {
-			goals = append(goals, g)
+		if r.IsHomeGame {
+			for _,g := range r.GoalsInfo {
+				goals = append(goals, g)
+			}
 		}
 	}
 	return goals
