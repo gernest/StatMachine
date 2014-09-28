@@ -7,11 +7,11 @@ import (
 
 func TestCalculatingNumberOfPoints(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(),1, CardInfo{}},
-		Result{4, 0, 3, 1, 0, 0, false, 0, time.Now(),1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 3, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	totalPoints := Points(allResults)
