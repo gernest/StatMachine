@@ -5,10 +5,10 @@ import "time"
 
 func TestLastGameWon(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 4, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 4, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	win := lastGameWon(allResults)
@@ -20,10 +20,10 @@ func TestLastGameWon(t *testing.T) {
 
 func TestLastGameLost(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 4, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 4, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	lost := lastGameLost(allResults)
@@ -35,10 +35,10 @@ func TestLastGameLost(t *testing.T) {
 
 func TestLastGameDrawn(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 4, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 4, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 	drawn := lastGameDrawn(allResults)
 
