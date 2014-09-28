@@ -7,10 +7,10 @@ import (
 
 func TestFirstHalfsScoredInInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 1, 3, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 1, 3, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	count := firstHalfsScoredInInARow(allResults)
@@ -22,11 +22,11 @@ func TestFirstHalfsScoredInInARow(t *testing.T) {
 
 func TestSecondHalfsScoredInInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 1, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 1, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	count := secondHalfsScoredInInARow(allResults)
@@ -38,10 +38,10 @@ func TestSecondHalfsScoredInInARow(t *testing.T) {
 
 func TestFirstHalfsConcededInInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 1, 0, 1, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 1, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 1, 0, 1, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 1, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	count := firstHalfsConcededInInARow(allResults)
@@ -53,12 +53,12 @@ func TestFirstHalfsConcededInInARow(t *testing.T) {
 
 func TestSecondHalfsConcededInInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 1, 1, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 1, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 1, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 4, 1, 4, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 1, 1, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 1, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 1, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 4, 1, 4, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	count := secondHalfsConcededInInARow(allResults)
@@ -70,12 +70,12 @@ func TestSecondHalfsConcededInInARow(t *testing.T) {
 
 func TestHalfsScoredInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 2, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 3, 1, 2, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 4, 1, 4, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 2, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 3, 1, 2, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 1, 2, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 4, 1, 4, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	count := halfsScoredInInARow(allResults)
@@ -97,12 +97,12 @@ func TestHalfsScoredInInARowWhenNoResults(t *testing.T) {
 
 func TestHalfsScoredInInARowWhenOnlyOne(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}}, //scored in first half
-		Result{1, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}}, //scores in second half
-		Result{2, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}}, //does not score
-		Result{3, 0, 3, 0, 3, 0, true, 0, time.Now(), 1, CardInfo{}}, //scores in second half
-		Result{2, 0, 0, 3, 0, 2, true, 0, time.Now(), 1, CardInfo{}}, //does not score
-		Result{3, 0, 1, 4, 0, 3, true, 0, time.Now(), 1, CardInfo{}}, //scores in scond half
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}}, //scored in first half
+		Result{1, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}}, //scores in second half
+		Result{2, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}}, //does not score
+		Result{3, 0, 3, 0, 3, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}}, //scores in second half
+		Result{2, 0, 0, 3, 0, 2, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}}, //does not score
+		Result{3, 0, 1, 4, 0, 3, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}}, //scores in scond half
 	}
 
 	count := halfsScoredInInARow(allResults)
@@ -114,12 +114,12 @@ func TestHalfsScoredInInARowWhenOnlyOne(t *testing.T) {
 
 func TestHalfsConcededInInARow(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 3, 0, 1, true, 0, time.Now(), 1, CardInfo{}},		
-		Result{1, 0, 0, 3, 0, 2, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 1, 0, 1, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 0, 2, 0, 1, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 2, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 0, 3, 0, 3, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 0, 3, 0, 1, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 0, 3, 0, 2, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 1, 0, 1, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 0, 2, 0, 1, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 2, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 0, 3, 0, 3, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	count := halfsConcededInInARow(allResults)
@@ -141,12 +141,12 @@ func TestHalfsConcededInInARowWhenNoResults(t *testing.T) {
 
 func TestHalfsConcededInInARowWhenOnlyOne(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 1, 0, 1, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 0, 1, 0, 1, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	count := halfsConcededInInARow(allResults)
