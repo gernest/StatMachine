@@ -7,12 +7,12 @@ import (
 
 func TestBiggestWin(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 4, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{4, 0, 5, 2, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 4, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 5, 2, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	wins := BiggestWins(allResults)
@@ -26,12 +26,12 @@ func TestBiggestWin(t *testing.T) {
 
 func TestBiggestWinIfNoWin(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 0, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{4, 0, 0, 2, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 0, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 0, 2, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	wins := BiggestWins(allResults)
@@ -42,12 +42,12 @@ func TestBiggestWinIfNoWin(t *testing.T) {
 
 func TestBiggestWinIfMultiple(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 3, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 4, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{4, 0, 0, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{5, 0, 3, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 3, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 4, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 0, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{5, 0, 3, 0, 1, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	wins := BiggestWins(allResults)
@@ -64,12 +64,12 @@ func TestBiggestWinIfMultiple(t *testing.T) {
 
 func TestBiggestLosses(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 4, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{4, 0, 5, 2, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 4, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 5, 2, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	losses := BiggestLosses(allResults)
@@ -83,7 +83,7 @@ func TestBiggestLosses(t *testing.T) {
 
 func TestBiggestLossesIfNone(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	losses := BiggestLosses(allResults)
@@ -93,12 +93,12 @@ func TestBiggestLossesIfNone(t *testing.T) {
 }
 func TestBiggestLossesIfMultiple(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 0, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 3, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{4, 0, 0, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{5, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 0, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 0, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 3, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 0, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{5, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	losses := BiggestLosses(allResults)
@@ -115,12 +115,12 @@ func TestBiggestLossesIfMultiple(t *testing.T) {
 
 func TestHighestScoring(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 4, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{4, 0, 5, 2, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 4, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 1, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 5, 2, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	highestScoring := HighestScoring(allResults)
@@ -134,12 +134,12 @@ func TestHighestScoring(t *testing.T) {
 
 func TestBiggestScoringResultsIfMultiple(t *testing.T) {
 	allResults := []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 4, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 2, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{3, 0, 3, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{4, 0, 1, 3, 0, 0, false, 0, time.Now(), 1, CardInfo{}},
-		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 4, 0, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 2, 2, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{3, 0, 3, 1, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 1, 3, 0, 0, false, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
 	highestScoring := HighestScoring(allResults)
