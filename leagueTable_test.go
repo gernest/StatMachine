@@ -25,7 +25,7 @@ func TestCreatingLeagueTableWhenEachResultIsOnlyRecoredOnce(t *testing.T) {
 
 	league := NewLeague("Test League")
 	teamLiverpool := NewTeam(1, "Liverpool")
-	result := Result{1, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result := Result{1, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
 
 	league.Teams = append(league.Teams, teamLiverpool)
@@ -49,15 +49,15 @@ func TestCreatingLeagueTableWhenAllResultsAreDuplicate(t *testing.T) {
 	teamArsenal := NewTeam(3, "Arsenal")
 
 	//liverpool 4 - arsenal 0
-	result := Result{1001, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result := Result{1001, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{1001, 1, 0, 4, 0, 2, false, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{1001, 1, 0, 4, 0, 2, false, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
 
 	//liverpool 1 - chelsea 1
-	result = Result{1002, 2, 1, 1, 0, 0, true, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{1002, 2, 1, 1, 0, 0, true, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{1002, 1, 1, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{1002, 1, 1, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	league.Teams = append(league.Teams, teamLiverpool)
@@ -81,27 +81,27 @@ func TestCreatingLeagueTableWhenNotAllResultsAreFromSameSeason(t *testing.T) {
 	teamArsenal := NewTeam(3, "Arsenal")
 
 	//liverpool 4 - arsenal 0
-	result := Result{1001, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result := Result{1001, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{1001, 1, 0, 4, 0, 2, false, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{1001, 1, 0, 4, 0, 2, false, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
 
 	//liverpool 1 - chelsea 1
-	result = Result{1002, 2, 1, 1, 0, 0, true, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{1002, 2, 1, 1, 0, 0, true, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{1002, 1, 1, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{1002, 1, 1, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	//arsenal 3 - chelsea 0
-	result = Result{1003, 2, 3, 0, 0, 0, true, 2014, time.Now(), 3, CardInfo{}}
+	result = Result{1003, 2, 3, 0, 0, 0, true, 2014, time.Now(), 3, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
-	result = Result{1003, 3, 0, 3, 0, 0, false, 2014, time.Now(), 3, CardInfo{}}
+	result = Result{1003, 3, 0, 3, 0, 0, false, 2014, time.Now(), 3, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	//liverpool 7 - arsenal 0, season 2013
-	result = Result{1004, 3, 7, 0, 2, 0, true, 2013, time.Now(), 1, CardInfo{}}
+	result = Result{1004, 3, 7, 0, 2, 0, true, 2013, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{1004, 1, 0, 7, 0, 2, false, 2013, time.Now(), 1, CardInfo{}}
+	result = Result{1004, 1, 0, 7, 0, 2, false, 2013, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
 
 	league.Teams = append(league.Teams, teamLiverpool)
@@ -125,27 +125,27 @@ func TestCreatingLeagueTableWhenNotAllResultsAreFromSameSeasonOnlyReturnsTeamsFr
 	teamArsenal := NewTeam(3, "Arsenal")
 
 	//liverpool 4 - arsenal 0
-	result := Result{1001, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result := Result{1001, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{1001, 1, 0, 4, 0, 2, false, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{1001, 1, 0, 4, 0, 2, false, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
 
 	//liverpool 1 - chelsea 1
-	result = Result{1002, 2, 1, 1, 0, 0, true, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{1002, 2, 1, 1, 0, 0, true, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{1002, 1, 1, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{1002, 1, 1, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	//arsenal 3 - chelsea 0
-	result = Result{1003, 2, 3, 0, 0, 0, true, 2014, time.Now(), 3, CardInfo{}}
+	result = Result{1003, 2, 3, 0, 0, 0, true, 2014, time.Now(), 3, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
-	result = Result{1003, 3, 0, 3, 0, 0, false, 2014, time.Now(), 3, CardInfo{}}
+	result = Result{1003, 3, 0, 3, 0, 0, false, 2014, time.Now(), 3, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	//liverpool 7 - arsenal 0, season 2013
-	result = Result{1004, 3, 7, 1, 2, 0, true, 2013, time.Now(), 1, CardInfo{}}
+	result = Result{1004, 3, 7, 1, 2, 0, true, 2013, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{1004, 1, 1, 7, 0, 2, false, 2013, time.Now(), 1, CardInfo{}}
+	result = Result{1004, 1, 1, 7, 0, 2, false, 2013, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
 
 	league.Teams = append(league.Teams, teamLiverpool)
@@ -200,11 +200,11 @@ func TestLeagueTableIsSortedByPointsThenGoalDifference(t *testing.T) {
 
 	league := NewLeague("Test League")
 	teamLiverpool := NewTeam(1, "Liverpool")
-	result := Result{1, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result := Result{1, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
 
 	teamChelsea := NewTeam(2, "Chelsea")
-	result = Result{2, 3, 5, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{2, 3, 5, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	league.Teams = append(league.Teams, teamLiverpool)
@@ -225,11 +225,11 @@ func TestLeagueTableIsSortedByGoalsScoredWhenGoalDifferenceIsEqual(t *testing.T)
 
 	league := NewLeague("Test League")
 	teamLiverpool := NewTeam(1, "Liverpool")
-	result := Result{1, 3, 5, 1, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result := Result{1, 3, 5, 1, 2, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
 
 	teamChelsea := NewTeam(2, "Chelsea")
-	result = Result{2, 3, 4, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{2, 3, 4, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	league.Teams = append(league.Teams, teamLiverpool)
@@ -252,14 +252,14 @@ func TestTwoTeamLeagueWhenTheyAreOnlySeperatedByGoalDifference(t *testing.T) {
 	teamArsenal := NewTeam(1, "Arsenal")
 	teamSouthampton := NewTeam(1, "Southampton")
 
-	result := Result{3, 4, 4, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result := Result{3, 4, 4, 0, 1, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
-	result = Result{3, 4, 0, 4, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{3, 4, 0, 4, 1, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
-	
-	result = Result{4, 3, 0, 3, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+
+	result = Result{4, 3, 0, 3, 1, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamSouthampton.Results = append(teamSouthampton.Results, result)
-	result = Result{4, 3, 2, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{4, 3, 2, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamSouthampton.Results = append(teamSouthampton.Results, result)
 
 	league.Teams = append(league.Teams, teamArsenal)
@@ -274,11 +274,11 @@ func TestLeaguePositionByRoundAfterOneGame(t *testing.T) {
 
 	league := NewLeague("Test League")
 	teamLiverpool := NewTeam(1, "Liverpool")
-	result := Result{1, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result := Result{1, 3, 4, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
 
 	teamChelsea := NewTeam(2, "Chelsea")
-	result = Result{2, 3, 1, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{2, 3, 1, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
 	league.Teams = append(league.Teams, teamLiverpool)
@@ -289,15 +289,15 @@ func TestLeaguePositionByRoundAfterOneGame(t *testing.T) {
 
 	//printLeagueTable(leagueTable)
 	if 3 != len(leaguePositions) {
-	 	t.Errorf("didnt get 3 league positions as expected, got %v", len(leaguePositions))
+		t.Errorf("didnt get 3 league positions as expected, got %v", len(leaguePositions))
 	}
-	if(leaguePositions["Liverpool"]["1"] != 1){
+	if leaguePositions["Liverpool"]["1"] != 1 {
 		t.Errorf("expected Livepool to be in place 1 after 1 round, got place %v", leaguePositions["Liverpool"]["1"])
 	}
-	if(leaguePositions["Chelsea"]["1"] != 2){
+	if leaguePositions["Chelsea"]["1"] != 2 {
 		t.Errorf("expected Chelsea to be in place 2 after 1 round, got place %v", leaguePositions["Chelsea"]["1"])
 	}
-	if(leaguePositions["Arsenal"]["1"] != 3){
+	if leaguePositions["Arsenal"]["1"] != 3 {
 		t.Errorf("expected Arsenal to be in place 3 after 1 round, got place %v", leaguePositions["Arsenal"]["1"])
 	}
 }
@@ -309,28 +309,26 @@ func TestLeaguePositionByRoundAfterTwoRounds(t *testing.T) {
 	teamChelsea := NewTeam(2, "Chelsea")
 	teamArsenal := NewTeam(3, "Arsenal")
 	teamSouthampton := NewTeam(4, "Southampton")
-	
-	result := Result{1, 2, 2, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}}
+
+	result := Result{1, 2, 2, 0, 2, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{2, 1, 0,2, 0, 2, false, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{2, 1, 0, 2, 0, 2, false, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
 
-
-	result = Result{3, 4, 4, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{3, 4, 4, 1, 1, 0, true, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
-	result = Result{4, 3, 1, 4, 1, 0, false, 2014, time.Now(), 1, CardInfo{}}
+	result = Result{4, 3, 1, 4, 1, 0, false, 2014, time.Now(), 1, CardInfo{}, []GoalInfo{}}
 	teamSouthampton.Results = append(teamSouthampton.Results, result)
 
-	result = Result{1, 3, 3, 0, 1, 0, false, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{1, 3, 3, 0, 1, 0, false, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamLiverpool.Results = append(teamLiverpool.Results, result)
-	result = Result{3, 1, 0,3, 0, 1, true, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{3, 1, 0, 3, 0, 1, true, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamArsenal.Results = append(teamArsenal.Results, result)
 
-	result = Result{2, 4, 0, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{2, 4, 0, 1, 0, 0, false, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamChelsea.Results = append(teamChelsea.Results, result)
-	result = Result{4, 2, 1, 0, 0, 0, true, 2014, time.Now(), 2, CardInfo{}}
+	result = Result{4, 2, 1, 0, 0, 0, true, 2014, time.Now(), 2, CardInfo{}, []GoalInfo{}}
 	teamSouthampton.Results = append(teamSouthampton.Results, result)
-
 
 	league.Teams = append(league.Teams, teamLiverpool)
 	league.Teams = append(league.Teams, teamChelsea)
@@ -341,31 +339,31 @@ func TestLeaguePositionByRoundAfterTwoRounds(t *testing.T) {
 	leaguePositions := FindLeaguePositionsByRound(league, 2014)
 
 	if 4 != len(leaguePositions) {
-	 	t.Errorf("didnt get 4 league positions as expected, got %v", len(leaguePositions))
+		t.Errorf("didnt get 4 league positions as expected, got %v", len(leaguePositions))
 	}
-	if(leaguePositions["Arsenal"]["1"] != 1){
+	if leaguePositions["Arsenal"]["1"] != 1 {
 		t.Errorf("expected Arsenal to be in place 1 after 1 round, got place %v", leaguePositions["Arsenal"]["1"])
 	}
-	if(leaguePositions["Liverpool"]["1"] != 2){
+	if leaguePositions["Liverpool"]["1"] != 2 {
 		t.Errorf("expected Livepool to be in place 2 after 1 round, got place %v", leaguePositions["Liverpool"]["1"])
 	}
-	if(leaguePositions["Chelsea"]["1"] != 3){
+	if leaguePositions["Chelsea"]["1"] != 3 {
 		t.Errorf("expected Chelsea to be in place 3 after 1 round, got place %v", leaguePositions["Chelsea"]["1"])
 	}
-	if(leaguePositions["Southampton"]["1"] != 4){
+	if leaguePositions["Southampton"]["1"] != 4 {
 		t.Errorf("expected Southampton to be in place 4 after 1 round, got place %v", leaguePositions["Southampton"]["1"])
 	}
 
-	if(leaguePositions["Liverpool"]["2"] != 1){
+	if leaguePositions["Liverpool"]["2"] != 1 {
 		t.Errorf("expected Livepool to be in place 1 after 2 round, got place %v", leaguePositions["Liverpool"]["2"])
 	}
-	if(leaguePositions["Arsenal"]["2"] != 2){
+	if leaguePositions["Arsenal"]["2"] != 2 {
 		t.Errorf("expected Arsenal to be in place 2 after 2 round, got place %v", leaguePositions["Arsenal"]["2"])
 	}
-	if(leaguePositions["Southampton"]["2"] != 3){
+	if leaguePositions["Southampton"]["2"] != 3 {
 		t.Errorf("expected Southampton to be in place 3 after 2 round, got place %v", leaguePositions["Southampton"]["2"])
 	}
-	if(leaguePositions["Chelsea"]["2"] != 4){
+	if leaguePositions["Chelsea"]["2"] != 4 {
 		t.Errorf("expected Chelsea to be in place 4 after 2 round, got place %v", leaguePositions["Chelsea"]["2"])
 	}
 }
