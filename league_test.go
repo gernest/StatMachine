@@ -35,14 +35,14 @@ func TestNumberOfGames(t *testing.T) {
 	league := NewLeague("Test League")
 	teamA := NewTeam(1, "Liverpool")
 	teamA.Results = []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
-		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 0, 2, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 	league.Teams = append(league.Teams, teamA)
 	teamB := NewTeam(1, "Arsenal")
 	teamB.Results = []Result{
-		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}},
+		Result{0, 0, 1, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 	league.Teams = append(league.Teams, teamB)
 
