@@ -94,3 +94,9 @@ func (r Result) SecondHalfPoints() uint8 {
 		return 0
 	}
 }
+
+type ByDateDesc []Result
+
+func (a ByDateDesc) Len() int           { return len(a) }
+func (a ByDateDesc) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ByDateDesc) Less(i, j int) bool { return a[i].Date.Before(a[j].Date) }
