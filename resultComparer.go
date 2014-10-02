@@ -1,7 +1,7 @@
 package statmachine
 
 
-func FindMatchingFixtures(sourceResults []Result, targetResults []Result) []ResultPair{
+func FindMatchingResults(sourceResults []Result, targetResults []Result) []ResultPair{
 	matchingResults := []ResultPair{}
 
 	for _,sourceRes := range sourceResults {

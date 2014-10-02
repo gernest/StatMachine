@@ -8,7 +8,7 @@ import (
 func TestNoResultsRetrunsNoMatchingResults(t *testing.T) {
 	thisSeasonResults := []Result{}
 	compareToSeason := []Result{}
-	matchingResults := FindMatchingFixtures(thisSeasonResults, compareToSeason)
+	matchingResults := FindMatchingResults(thisSeasonResults, compareToSeason)
 	if 0!=len(matchingResults) {
 		t.Errorf("Didnt get correct number of matching results, got %v, expected 0", len(matchingResults))
 	}
@@ -24,7 +24,7 @@ func TestNoResultsReturnedWhenNoResultsInTargetSeason(t *testing.T) {
 		Result{5, 0, 1, 1, 0, 0, true, 2015, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 	compareToSeason := []Result{}
-	matchingResults := FindMatchingFixtures(thisSeasonResults, compareToSeason)
+	matchingResults := FindMatchingResults(thisSeasonResults, compareToSeason)
 	if 0!=len(matchingResults) {
 		t.Errorf("Didnt get correct number of matching results, got %v, expected 0", len(matchingResults))
 	}
@@ -49,7 +49,7 @@ func TestFindsMultipleMatchingResults(t *testing.T) {
 		Result{11, 20, 1, 1, 0, 0, true, 2015, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
-	matchingResults := FindMatchingFixtures(thisSeasonResults, compareToSeasonResults)
+	matchingResults := FindMatchingResults(thisSeasonResults, compareToSeasonResults)
 	if 3!=len(matchingResults) {
 		t.Errorf("Didnt get correct number of matching results, got %v, expected 3", len(matchingResults))
 	}
