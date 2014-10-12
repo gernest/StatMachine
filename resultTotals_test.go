@@ -104,7 +104,7 @@ func TestTotalGoalsScored(t *testing.T) {
 		Result{6, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
-	count := totalGoalsScored(allResults)
+	count := TotalGoalsScored(allResults)
 
 	if 9 != count {
 		t.Errorf("Didnt get correct number of total goals scored , got %v, expected 9", count)
@@ -122,7 +122,7 @@ func TestTotalGoalsConceded(t *testing.T) {
 		Result{6, 0, 0, 0, 0, 0, true, 0, time.Now(), 1, CardInfo{}, []GoalInfo{}},
 	}
 
-	count := totalGoalsConceded(allResults)
+	count := TotalGoalsConceded(allResults)
 
 	if 7 != count {
 		t.Errorf("Didnt get correct number of total goals conceded, got %v, expected 7", count)

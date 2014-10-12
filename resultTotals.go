@@ -20,11 +20,11 @@ func cleanSheets(res []Result) int {
 	return countTotal(res, func(r Result) bool { return !r.ConcededAGoal() })
 }
 
-func totalGoalsScored(res []Result) int {
+func TotalGoalsScored(res []Result) int {
 	return sumTotal(res, func(r Result) int { return r.Goals })
 }
 
-func totalGoalsConceded(res []Result) int {
+func TotalGoalsConceded(res []Result) int {
 	return sumTotal(res, func(r Result) int { return r.OpponentGoals })
 }
 

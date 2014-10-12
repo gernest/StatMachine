@@ -30,7 +30,7 @@ func GoalInfoString(res []Result) string {
 }
 
 func GoalDifferenceString(res []Result) string {
-	goals := totalGoalsScored(res)
-	against := totalGoalsConceded(res)
+	goals := TotalGoalsScored(res)
+	against := TotalGoalsConceded(res)
 	return fmt.Sprintf("Goals Scored- Goals Against (difference): %v-%v %v", goals, against, goals-against)
 }
