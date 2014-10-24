@@ -1,5 +1,7 @@
 package statmachine
 
+import "time"
+
 func HomeResults(res []Result) []Result {
 	return filterResults(res, func(r Result) bool { return r.IsHomeGame })
 }
@@ -22,6 +24,10 @@ func ResultsBySeason(res []Result, seasonId int) []Result {
 
 func ResultsByOpponent(res []Result, opponentId int) []Result {
 	return filterResults(res, func(r Result) bool { return opponentId == r.OpponentId })
+}
+
+func ResultsBeforeDate(res []Result, time time.Time) []Result {
+	return filterResults(res, func(r Result) bool { return r.Date.Before(time) })
 }
 
 func ResultsByRounds(res []Result, rounds []int) []Result {

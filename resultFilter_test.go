@@ -3,6 +3,7 @@ package statmachine
 import (
 	"testing"
 	"time"
+	"fmt"
 )
 
 func TestAtHome(t *testing.T) {
@@ -168,5 +169,23 @@ func TestResultsByRoundsWithOneRound(t *testing.T) {
 
 	if 1 != len(results) {
 		t.Errorf("Didnt get correct number of results when filtering by round, got %v, expected 1", len(results))
+	}
+}
+
+func TestResultsBeforeDate(t *testing.T) {
+	allResults := []Result{
+		Result{0, 0, 1, 0, 1, 0, true, 0, time.Date(2014, 1, 1, 0,0,0,0, time.UTC), 1, CardInfo{}, []GoalInfo{}},
+		Result{1, 1, 2, 0, 1, 2, false, 0, time.Date(2013, 12, 20, 0,0,0,0, time.UTC), 2, CardInfo{}, []GoalInfo{}},
+		Result{2, 0, 0, 3, 0, 0, true, 0, time.Date(2013, 11, 21, 0,0,0,0, time.UTC), 3, CardInfo{}, []GoalInfo{}},
+		Result{3, 1, 1, 1, 0, 1, false, 0, time.Date(2013, 11, 15, 0,0,0,0, time.UTC), 4, CardInfo{}, []GoalInfo{}},
+		Result{4, 0, 3, 1, 0, 1, false, 0, time.Date(2013, 11, 14, 0,0,0,0, time.UTC), 5, CardInfo{}, []GoalInfo{}},
+		Result{5, 0, 1, 1, 0, 0, true, 0, time.Date(2013, 10, 21, 0,0,0,0, time.UTC), 6, CardInfo{}, []GoalInfo{}},
+	}
+	d := time.Date(2013, 11, 15, 0,0,0,0, time.UTC)
+	results := ResultsBeforeDate(allResults, d)
+	fmt.Printf("%v\n", results[0])
+	fmt.Printf("%v\n", results[1])
+	if 2 != len(results) {
+		t.Errorf("Didnt get correct number of results when filtering by date, got %v, expected 2", len(results))
 	}
 }
